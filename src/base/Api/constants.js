@@ -2,6 +2,7 @@ export const BACKEND_URLS = {
   LOGIN: 'auth/login/token/',
   REGISTRATION: 'auth/register/',
   INFO: 'info/',
+  LOGOUT: 'auth/logout/',
 };
 Object.freeze(BACKEND_URLS);
 

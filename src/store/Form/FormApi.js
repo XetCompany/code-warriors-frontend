@@ -1,6 +1,8 @@
 import ApiClass from '../../base/Api/ApiClass';
 import { BACKEND_URLS } from '../../base/Api/constants';
 import Url from '../../base/Api/Url';
+import saveToken from '../User/UserStore';
+import axios from 'axios';
 
 class FormApi extends ApiClass {
   constructor() {
@@ -13,7 +15,6 @@ class FormApi extends ApiClass {
   }
 
   async register() {
-    let date = this.form.getFieldsValue();
     let route;
     let data = new FormData();
     for (let key in this.form.getFieldsValue()) {
@@ -22,20 +23,27 @@ class FormApi extends ApiClass {
     let url;
     route = BACKEND_URLS.REGISTRATION;
     url = new Url({ route }).defaultUrl;
-    const response = await this.sendPost(url, date, {});
+    const response = await this.sendPost(url, data, {});
     return response;
   }
 
   async login() {
     let route;
+    let url;
     let data = new FormData();
     for (let key in this.form.getFieldsValue()) {
       data.append(key, this.form.getFieldsValue()[key]);
     }
-    let url;
     route = BACKEND_URLS.LOGIN;
     url = new Url({ route }).defaultUrl;
-    const response = await this.sendPost(url, data, {});
+    const response = await this.sendPost(url, data, {})
+    .then((res) => {
+      if (res.status === 200) {
+          saveToken(JSON.stringify(res.data));
+          return Promise.resolve()
+      }
+      return Promise.reject();
+    });
     return response;
   }
 }

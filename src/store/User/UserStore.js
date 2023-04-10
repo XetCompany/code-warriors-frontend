@@ -5,8 +5,8 @@ class UserStore {
     makeAutoObservable(this);
   }
 
-  get myToken() {
-    return localStorage.getItem('user_uid');
+  saveToken(token) {
+    sessionStorage.setItem('token', JSON.stringify(token));
   }
 }
 

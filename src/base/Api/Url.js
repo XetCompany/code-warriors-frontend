@@ -5,7 +5,6 @@ export default class Url {
     this.route = route;
     this.searchSettings = searchSettings;
     this.queries = queries;
-
     this.serverUrl = serverUrl || SERVER_URL;
   }
 

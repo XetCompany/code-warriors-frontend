@@ -6,7 +6,7 @@ class ApiClass {
 
   get #defaultRequestHeaders() {
     return {
-      Authorization: `Bearer ${localStorage.getItem('user_token')}`,
+      // Authorization: `Bearer ${localStorage.getItem('user_token')}`,
     };
   }
 
