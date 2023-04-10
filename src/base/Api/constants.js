@@ -1,5 +1,5 @@
 export const BACKEND_URLS = {
-  LOGIN: 'auth/login/',
+  LOGIN: 'auth/login/token/',
   REGISTRATION: 'auth/register/',
   INFO: 'info/',
 };
