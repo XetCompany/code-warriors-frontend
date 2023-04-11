@@ -31,7 +31,7 @@ root.render(<BrowserRouter>
         <Route path="/request/create" element={<CreateRequest/>}/>
         <Route path="/request/:id" element={<RequestPage/>}/>
         <Route path="/my-requests" element={<MyRequests/>}/>
-        <Route path="/my-request/edit" element={<MyRequestsEdit/>}/>
+        <Route path="/my-request/edit/:id" element={<MyRequestsEdit/>}/>
         <Route path="/reset-password/:token" element={<ResetPassword/>}/>
         <Route path="/request-password-reset" element={<RequestResetPassword/>}/>
     </Routes>

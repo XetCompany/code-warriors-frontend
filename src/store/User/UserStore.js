@@ -9,12 +9,17 @@ class UserStore {
         this.role = null;
         this.isAuth = false;
         this.user = null;
+        this.userIsLoaded = false;
         this.resetPassword = null;
         this.isShowNotification = false;
         this.notifications = [];
 
         this.init();
         makeAutoObservable(this);
+    }
+
+    setUserIsLoaded(isLoaded) {
+        this.userIsLoaded = isLoaded;
     }
 
     setNotificationVisibility(isShow) {
@@ -56,6 +61,8 @@ class UserStore {
                     this.setUser(response.data.data.user);
                     this.setUserById(response.data.data.user.id);
                     this.setRole(response.data.data.user.groups);
+                    this.setIsAuth(true);
+                    this.setUserIsLoaded(true);
                 });
             }
         )

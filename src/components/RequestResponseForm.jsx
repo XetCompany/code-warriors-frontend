@@ -3,16 +3,23 @@ import FormApi from "../store/Form/FormApi";
 import React from "react";
 import {BACKEND_URLS} from "../base/Api/constants";
 import Url from "../base/Api/Url";
+import RequestPageStore from "../store/Request/RequestPageStore";
+import RequestPageApi from "../store/Request/RequestPageApi";
 
-const onFinish = () => {
-
+const onFinish = (request_id, navigate) => {
+    RequestPageApi.addResponseToRequest({
+        id: request_id,
+        data: RequestPageStore.data,
+    }).then((response) => {
+        // alert('Ответ успешно добавлен');
+    });
 }
 
 const onFinishFailed = () => {
 
 }
 
-const RequestResponseForm = () => {
+const RequestResponseForm = ({request_id}) => {
     const [form] = Form.useForm();
     FormApi.setForm(form);
 
@@ -36,7 +43,7 @@ const RequestResponseForm = () => {
         initialValues={{
             remember: true,
         }}
-        onFinish={onFinish}
+        onFinish={() => onFinish(request_id)}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
         form={form}

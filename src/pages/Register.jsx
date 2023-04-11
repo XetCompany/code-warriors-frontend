@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button, Form, Input, Radio, Card} from 'antd';
 import FormApi from '../store/Form/FormApi';
-import {useNavigate, NavLink} from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 
 const onFinish = (navigate) => {
     FormApi.register().then(r => {

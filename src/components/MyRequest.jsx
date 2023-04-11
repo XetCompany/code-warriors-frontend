@@ -43,7 +43,7 @@ const MyRequest = ({...data}) => {
                     }
                 });
             }}>Удалить</Button>)}
-            <Link to="/my-request/edit">Редактировать</Link>
+            <Link to={"/my-request/edit/"+data.id+"/"}>Редактировать</Link>
     </div>
   )
 }

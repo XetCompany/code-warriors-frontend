@@ -6,18 +6,17 @@ import MyRequest from "../components/MyRequest";
 import { Card } from "antd";
 
 const MyRequests = () => {
-    
     useEffect(() => {
+        RequestStore.setIsShowMyRequests(false);
         requestApi.getMyRequests().then(
             (response) => {
-                console.log(response.data.data);
-                RequestStore.setData(response.data.data);
-                RequestStore.setIsShowData(true);
+                RequestStore.setMyRequests(response.data.data);
+                RequestStore.setIsShowMyRequests(true);
             }
         );
     }, [])
 
-    if (!RequestStore.isShowData) {
+    if (!RequestStore.isShowMyRequests) {
         return <div>Загрузка...</div>;
     }
 

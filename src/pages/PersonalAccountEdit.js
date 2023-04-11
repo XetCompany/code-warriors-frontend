@@ -3,11 +3,12 @@ import FormApi from "../store/Form/FormApi";
 import React from "react";
 import UserStore from "../store/User/UserStore";
 import UserApi from "../store/User/UserApi";
+import {useNavigate} from "react-router-dom";
 
-const onFinish = (values) => {
+const onFinish = (navigate) => {
     UserApi.updateUserInfo().then(() => {
-        console.log('Success:', values);
         UserStore.updateUser();
+        navigate('/personal-account');
     });
 }
 
@@ -18,6 +19,8 @@ const onFinishFailed = (errorInfo) => {
 const PersonalAccountEdit = () => {
     const [form] = Form.useForm();
     FormApi.setForm(form);
+
+    const navigate = useNavigate();
 
     if (!UserStore.user) {
         return <div>Нет данных</div>
@@ -47,7 +50,9 @@ const PersonalAccountEdit = () => {
             initialValues={{
                 remember: true,
             }}
-            onFinish={onFinish}
+            onFinish={() => {
+                onFinish(navigate);
+            }}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
             form={form}

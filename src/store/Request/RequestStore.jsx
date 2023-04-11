@@ -7,7 +7,17 @@ class RequestStore {
         this.error = null;
         this.data = null;
         this.categories = null;
+        this.isShowMyRequests = false;
+        this.myRequests = null;
         makeAutoObservable(this);
+    }
+
+    setIsShowMyRequests(isShowMyRequests) {
+        this.isShowMyRequests = isShowMyRequests;
+    }
+
+    setMyRequests(myRequests) {
+        this.myRequests = myRequests;
     }
 
     setCategories(categories) {
