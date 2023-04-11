@@ -11,6 +11,7 @@ const NavBar = () => {
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/personal-account">Personal Account</Link></li>
             <li><Link to={"/requests"}>Requests</Link></li>
+            <li><Link to={"/request/create"}>Create Request</Link></li>
         </ul>
     </nav>)
 }

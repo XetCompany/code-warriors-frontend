@@ -3,11 +3,15 @@ export const BACKEND_URLS = {
     REFRESH_TOKEN: 'auth/login/token/refresh/',
     REGISTRATION: 'auth/register/',
     RESPONSE_FOR_REQUEST: 'info/request/response/',
+    CATEGORIES: 'info/categories/',
     INFO: 'info/',
     LOGOUT: 'auth/logout/',
     REQUESTS: 'info/requests/',
     REQUESTS_CREATE: 'info/request/create/',
     USER_INFO: 'info/user/',
+
+    PHOTO: 'info/image/',
+    VIDEO: 'info/video/',
 };
 Object.freeze(BACKEND_URLS);
 

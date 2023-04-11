@@ -45,6 +45,22 @@ class FormApi extends ApiClass {
                 return Promise.reject();
             });
     }
+
+    async createRequest() {
+        const route = BACKEND_URLS.REQUESTS_CREATE;
+        const url = new Url({route}).defaultUrl;
+        return await this.sendPost(url, this.form.getFieldsValue(), {
+            headers: {
+                'Authorization': 'Bearer ' + UserStore.accessToken,
+            }
+        })
+            .then((res) => {
+                if (res.status === 201) {
+                    return Promise.resolve(res.data)
+                }
+                return Promise.reject();
+            });
+    }
 }
 
 const formApi = new FormApi();

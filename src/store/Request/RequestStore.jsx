@@ -5,7 +5,12 @@ class RequestStore {
         this.isShowData = false;
         this.error = null;
         this.data = null;
+        this.categories = null;
         makeAutoObservable(this);
+    }
+
+    setCategories(categories) {
+        this.categories = categories;
     }
 
     setIsShowData(isShowData) {

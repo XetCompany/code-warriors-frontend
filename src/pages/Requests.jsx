@@ -8,7 +8,6 @@ const Requests = () => {
     useEffect(() => {
         RequestApi.getRequests().then(
             (response) => {
-                console.log('Success:', response);
                 RequestStore.setData(response.data);
                 RequestStore.setIsShowData(true);
             }

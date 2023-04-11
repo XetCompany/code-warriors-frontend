@@ -29,8 +29,7 @@
 //     }
 import UserStore from "../store/User/UserStore";
 import {Button} from "antd";
-import Url from "../base/Api/Url";
-import {BACKEND_URLS} from "../base/Api/constants";
+import {SERVER_URL} from "../base/Api/constants";
 
 const RequestView = ({...data}) => {
     return (<div>
@@ -45,7 +44,7 @@ const RequestView = ({...data}) => {
             return (<span key={index}>{video}{index !== data.videos.length - 1 ? ', ' : ''}</span>);
         })}</div>
         <div>Отклики: {data.responses.map((response, index) => {
-            return (<span key={index}>{response}{index !== data.responses.length - 1 ? ', ' : ''}</span>);
+            return (<span key={index}>{response.username}{index !== data.responses.length - 1 ? ', ' : ''}</span>);
         })}</div>
         <div>Название: {data.title}</div>
         <div>Описание: {data.description}</div>
@@ -58,16 +57,14 @@ const RequestView = ({...data}) => {
         <div>Обновлен: {data.updated_at}</div>
         {
             UserStore.role && UserStore.role.includes('performer') && (<Button type="primary" onClick={() => {
-                const route = BACKEND_URLS.RESPONSE_FOR_REQUEST;
-                const id = data.id;
-                const url = new Url({route, id}).defaultUrl;
+                const url = SERVER_URL + 'info/request/' + data.id + '/add_response/';
                 fetch(url, {
                     method: 'POST',
                     headers: {
                         Authorization: 'Bearer ' + UserStore.accessToken,
                     },
                 }).then((response) => {
-                    if (response.status === 200) {
+                    if (response.status === 201) {
                         alert('Отклик успешно отправлен');
                     } else {
                         alert('Ошибка при отправке отклика');

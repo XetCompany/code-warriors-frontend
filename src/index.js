@@ -10,6 +10,7 @@ import NavBar from "./pages/NavBar";
 import PersonalAccount from "./pages/PersonalAccount";
 import PersonalAccountEdit from "./pages/PersonalAccountEdit";
 import Requests from "./pages/Requests";
+import CreateRequest from "./pages/CreateRequest";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<BrowserRouter>
@@ -21,6 +22,7 @@ root.render(<BrowserRouter>
         <Route path="/personal-account" element={<PersonalAccount/>}/>
         <Route path="/personal-account/edit" element={<PersonalAccountEdit/>}/>
         <Route path="/requests" element={<Requests/>}/>
+        <Route path="/request/create" element={<CreateRequest/>}/>
     </Routes>
 </BrowserRouter>);
 
