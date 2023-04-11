@@ -2,15 +2,15 @@ import {Button, Form, Input, Select, Upload} from "antd";
 import FormApi from "../store/Form/FormApi";
 import React from "react";
 import UserStore from "../store/User/UserStore";
-import { BACKEND_URLS } from "../base/Api/constants";
-import Url from "../base/Api/Url";
+// import { BACKEND_URLS } from "../base/Api/constants";
+// import Url from "../base/Api/Url";
 import requestStore from "../store/Request/RequestStore";
 import RequestApi from "../store/Request/RequestApi";
 
 const onFinish = (values) => {
   RequestApi.updateRequest().then(() => {
       console.log('Success:', values);
-      requestStore.setData();
+      requestStore.updateData();
   });
 }
 
@@ -26,17 +26,12 @@ const MyRequestsEdit = () => {
     return <div>Нет данных</div>
   }
 
-    const route = BACKEND_URLS.PHOTO;
-    const photo_url = new Url({route}).defaultUrl;
+    // const route = BACKEND_URLS.PHOTO;
+    // const photo_url = new Url({route}).defaultUrl;
 
-    const route2 = BACKEND_URLS.VIDEO;
-    const video_url = new Url({route: route2}).defaultUrl;
-    console.log(requestStore.data[0]);
-    // if (requestStore.data.executor.id === null) {
-    //     executor: null
-    // } else {
-    //     executor: requestStore.data.executor.id
-    // }
+    // const route2 = BACKEND_URLS.VIDEO;
+    // const video_url = new Url({route: route2}).defaultUrl;
+    // console.log(requestStore.data[0]);
 
   form.setFieldsValue({
     creator: UserStore.userId,
@@ -72,22 +67,14 @@ const MyRequestsEdit = () => {
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
-            // onBeforeLoad={}
             form={form}
         >
-            {/* <Form.Item
+            <Form.Item
                 label="Категория"
                 name="category"
             >
-                <Select 
-                options={requestStore.categories.map((category) => {
-                    return {
-                        value: category.id, label: category.name
-                    }
-                })}
-                value={requestStore.data.category}
-                 />
-            </Form.Item> */}
+                <Select />
+            </Form.Item>
             <Form.Item
                 label="Фотографии"
                 name="photos"
@@ -101,12 +88,7 @@ const MyRequestsEdit = () => {
                     return imageList;
                 }}
             >
-                <Upload 
-                // value={requestStore.data.photos.map((photo, index) => {
-                //     return (<span key={index}>{photo}{index !== requestStore.data.photos.length - 1 ? ', ' : ''}</span>);
-                // })}
-                action={photo_url}
-                >
+                <Upload>
                     <Button>Загрузить</Button>
                 </Upload>
             </Form.Item>
@@ -123,12 +105,7 @@ const MyRequestsEdit = () => {
                     return videoList;
                 }}
             >
-                <Upload
-                // value={requestStore.data.videos.map((video, index) => {
-                //     return (<span key={index}>{video}{index !== requestStore.data.videos.length - 1 ? ', ' : ''}</span>);
-                // })}
-                action={video_url}
-                >
+                <Upload>
                     <Button>Загрузить</Button>
                 </Upload>
             </Form.Item>
@@ -136,37 +113,37 @@ const MyRequestsEdit = () => {
                 label="Название"
                 name="title"
             >
-                <Input value={requestStore.data[0].title} />
+                <Input />
             </Form.Item>
             <Form.Item
                 label="Описание"
                 name="description"
             >
-                <Input value={requestStore.data[0].description} />
+                <Input />
             </Form.Item>
             <Form.Item
                 label="Желаемая цена от"
                 name="price_from"
             >
-                <Input value={requestStore.data[0].price_from} />
+                <Input />
             </Form.Item>
             <Form.Item
                 label="Желаемая цена до"
                 name="price_to"
             >
-                <Input value={requestStore.data[0].price_to} />
+                <Input />
             </Form.Item>
             <Form.Item
                 label="Сроки оказания услуг(дни)"
                 name="deadline_in_days"
             >
-                <Input value={requestStore.data[0].deadline_in_days} />
+                <Input />
             </Form.Item>
             <Form.Item
                 label="Место оказания услуг"
                 name="place"
             >
-                <Input value={requestStore.data[0].place} />
+                <Input />
             </Form.Item>
             <Form.Item
                 wrapperCol={{
