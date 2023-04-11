@@ -11,6 +11,8 @@ export const BACKEND_URLS = {
     USER_INFO: 'info/user/',
     PHOTO: 'info/image/',
     VIDEO: 'info/video/',
+    NOTIFICATIONS: 'info/notifications/',
+    NOTIFICATIONS_READ_ALL: 'info/notifications/read_all/',
 };
 Object.freeze(BACKEND_URLS);
 

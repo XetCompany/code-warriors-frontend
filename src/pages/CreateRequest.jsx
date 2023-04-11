@@ -5,6 +5,7 @@ import RequestApi from "../store/Request/RequestApi";
 import RequestStore from "../store/Request/RequestStore";
 import {BACKEND_URLS} from "../base/Api/constants";
 import Url from "../base/Api/Url";
+import {observer} from "mobx-react";
 
 const onFinish = () => {
     FormApi.createRequest().then(r => {
@@ -18,17 +19,20 @@ const onFinishFailed = () => {
 
 const CreateRequest = () => {
     useEffect(() => {
-        RequestStore.setIsShowData(false);
+        RequestStore.setIsShowCategories(false);
         RequestApi.getCategories().then((response) => {
             const categories = response.data.data.categories;
             RequestStore.setCategories(categories);
-            console.log('categories', categories)
-            RequestStore.setIsShowData(true);
+            RequestStore.setIsShowCategories(true);
         });
-    })
+    }, [])
 
     const [form] = Form.useForm();
     FormApi.setForm(form);
+
+    if (!RequestStore.isShowCategories) {
+        return <div>Загрузка...</div>;
+    }
 
     const route = BACKEND_URLS.PHOTO;
     const photo_url = new Url({route}).defaultUrl;
@@ -36,9 +40,6 @@ const CreateRequest = () => {
     const route2 = BACKEND_URLS.VIDEO;
     const video_url = new Url({route: route2}).defaultUrl;
 
-    if (!RequestStore.isShowData) {
-        return <div>Загрузка...</div>;
-    }
 
     return (<Form
         name="basic"
@@ -177,4 +178,4 @@ const CreateRequest = () => {
     </Form>)
 }
 
-export default CreateRequest;
+export default observer(CreateRequest);

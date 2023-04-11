@@ -34,9 +34,10 @@ class RequestApi extends ApiClass {
         const route = BACKEND_URLS.CATEGORIES;
         const url = new Url({route}).defaultUrl;
 
+        await UserStore.updateAccessToken();
         return await this.sendGet(url, {
             headers: {
-                'Authorization': 'Bearer ' + UserStore.accessToken
+                Authorization: `Bearer ${UserStore.accessToken}`,
             }
         });
     }

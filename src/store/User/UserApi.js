@@ -8,12 +8,12 @@ class UserApi extends ApiClass {
     async getUserInfo() {
         const route = BACKEND_URLS.USER_INFO;
         const url = new Url({route}).defaultUrl;
-        const token = UserStore.accessToken;
+        await UserStore.updateAccessToken();
         return await this.sendGet(url, {
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${UserStore.accessToken}`,
             }
-        }, false);
+        });
     }
 
     async getAccessToken() {
@@ -27,13 +27,35 @@ class UserApi extends ApiClass {
     async updateUserInfo() {
         const route = BACKEND_URLS.USER_INFO;
         const url = new Url({route}).defaultUrl;
-        const token = UserStore.accessToken;
         const data = FormApi.form.getFieldsValue();
+        await UserStore.updateAccessToken();
         return await this.sendPut(url, data, {
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${UserStore.accessToken}`,
             }
-        }, false);
+        });
+    }
+
+    async getNotifications() {
+        const route = BACKEND_URLS.NOTIFICATIONS;
+        const url = new Url({route}).defaultUrl;
+        await UserStore.updateAccessToken();
+        return await this.sendGet(url, {
+            headers: {
+                Authorization: `Bearer ${UserStore.accessToken}`,
+            }
+        });
+    }
+
+    async readAllNotifications() {
+        const route = BACKEND_URLS.NOTIFICATIONS_READ_ALL;
+        const url = new Url({route}).defaultUrl;
+        await UserStore.updateAccessToken();
+        return await this.sendPost(url, {}, {
+            headers: {
+                Authorization: `Bearer ${UserStore.accessToken}`,
+            }
+        });
     }
 }
 
