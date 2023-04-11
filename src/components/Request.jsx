@@ -8,7 +8,6 @@ const RequestView = ({...data}) => {
     return (<div>
         {console.log(data)}
         <h2>Информация о заказе</h2>
-        {console.log(data.category.name)}
         <div>Заказчик: {data.creator.username}</div>
         <div>Исполнитель: {data.executor.username}</div>
         <div>Категория: {data.category.name}</div>

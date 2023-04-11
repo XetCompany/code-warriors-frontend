@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {observer} from "mobx-react";
 import {useEffect} from "react";
 import UserApi from "../store/User/UserApi";
-import {Button} from "antd";
+import {Button, Card} from "antd";
 
 const PersonalAccount = () => {
     useEffect(() => {
@@ -21,18 +21,26 @@ const PersonalAccount = () => {
         </div>);
     }
 
-    return (<div>
-        <h1>Личный кабинет</h1>
-        <User {...UserStore.user} />
-        <Link to="/personal-account/edit">Редактировать</Link>
-        <div>
-            <h2>Уведомления</h2>
-            <Button onClick={() => UserStore.readAllNotifications()}>
-                Прочитать все
-            </Button>
-            {UserStore.isShowNotification && UserStore.notifications.map((notification, index) => {
-                return <div key={index}>{notification.message}</div>;
-            })}
+    return (<div style={{display: 'flex', alignContent: 'center', flexDirection: 'row'}}>
+        <div style={{width: '50%'}}>
+            <h1 style={{display: 'flex', justifyContent: 'center'}}>Личный кабинет</h1>
+            <Card style={{maxWidth: '50vw'}}>
+                <div>
+                    <User {...UserStore.user} />
+                </div>
+                <Link style={{display: 'flex', justifyContent: 'center'}} to="/personal-account/edit">Редактировать профиль</Link>
+            </Card>
+        </div>
+        <div style={{width: '50%'}}>
+            <h2 style={{display: 'flex', justifyContent: 'center'}}>Уведомления</h2>
+            <Card style={{maxWidth: '50vw'}}>
+                <Button onClick={() => UserStore.readAllNotifications()}>
+                    Прочитать все
+                </Button>
+                {UserStore.isShowNotification && UserStore.notifications.map((notification, index) => {
+                    return <div key={index}>{notification.message}</div>;
+                })}
+            </Card>
         </div>
     </div>);
 

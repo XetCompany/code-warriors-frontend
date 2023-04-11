@@ -75,12 +75,13 @@ const Register = () => {
                     offset: 8, span: 16,
                 }}
             >
-                <div>
-                    <NavLink to="/login">Войти</NavLink>
-                </div>
                 <Button type="primary" htmlType="submit">
                     Сохранить
                 </Button>
+                <p>
+                    Уже есть аккаунт?
+                    <NavLink to="/login"> Войти</NavLink>
+                </p>
             </Form.Item>
         </Form>
     </div>)

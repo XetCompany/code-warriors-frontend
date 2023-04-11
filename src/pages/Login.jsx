@@ -57,10 +57,9 @@ const App = () => {
             }}
         >
             <Button type="primary" htmlType="submit">
-                Сохранить
+                Войти
             </Button>
-            <NavLink to="/register">Регистрация</NavLink>
-            <NavLink to="/request-password-reset">Забыли пароль?</NavLink>
+            <p>Нет аккаунта? <NavLink to="/register">Зарегистрироваться</NavLink> || <NavLink to="/request-password-reset">Забыли пароль?</NavLink></p>
         </Form.Item>
     </Form>)
 };

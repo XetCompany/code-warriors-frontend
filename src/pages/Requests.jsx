@@ -22,7 +22,7 @@ const Requests = () => {
         return <div>Загрузка...</div>;
     }
 
-    return (<div>
+    return (<div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
         <h1>Заявки</h1>
         <div>
             {RequestStore.data.map((request, index) => {
