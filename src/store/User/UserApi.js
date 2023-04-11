@@ -8,14 +8,18 @@ class UserApi extends ApiClass {
     async getUserInfo() {
         const route = BACKEND_URLS.USER_INFO;
         const url = new Url({route}).defaultUrl;
-        return await this.sendGet(url, {}, true);
+        await UserStore.updateAccessToken();
+        return await this.sendGet(url, {
+            headers: {
+                Authorization: `Bearer ${UserStore.accessToken}`,
+            }
+        });
     }
 
     async getAccessToken() {
         const route = BACKEND_URLS.REFRESH_TOKEN;
         const url = new Url({route}).defaultUrl;
         const token = UserStore.refreshToken;
-        console.log('getAccessToken', token);
         return await this.sendPost(url, {'refresh': token}, {}, false);
     }
 
@@ -24,7 +28,34 @@ class UserApi extends ApiClass {
         const route = BACKEND_URLS.USER_INFO;
         const url = new Url({route}).defaultUrl;
         const data = FormApi.form.getFieldsValue();
-        return await this.sendPut(url, data, {}, true);
+        await UserStore.updateAccessToken();
+        return await this.sendPut(url, data, {
+            headers: {
+                Authorization: `Bearer ${UserStore.accessToken}`,
+            }
+        });
+    }
+
+    async getNotifications() {
+        const route = BACKEND_URLS.NOTIFICATIONS;
+        const url = new Url({route}).defaultUrl;
+        await UserStore.updateAccessToken();
+        return await this.sendGet(url, {
+            headers: {
+                Authorization: `Bearer ${UserStore.accessToken}`,
+            }
+        });
+    }
+
+    async readAllNotifications() {
+        const route = BACKEND_URLS.NOTIFICATIONS_READ_ALL;
+        const url = new Url({route}).defaultUrl;
+        await UserStore.updateAccessToken();
+        return await this.sendPost(url, {}, {
+            headers: {
+                Authorization: `Bearer ${UserStore.accessToken}`,
+            }
+        });
     }
 }
 

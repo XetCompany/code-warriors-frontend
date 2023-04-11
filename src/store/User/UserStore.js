@@ -7,9 +7,19 @@ class UserStore {
         this.refreshToken = null;
         this.role = null;
         this.user = null;
+        this.isShowNotification = false;
+        this.notifications = [];
 
         this.init();
         makeAutoObservable(this);
+    }
+
+    setNotificationVisibility(isShow) {
+        this.isShowNotification = isShow;
+    }
+
+    setNotifications(notifications) {
+        this.notifications = notifications;
     }
 
     init() {
@@ -46,6 +56,16 @@ class UserStore {
 
     setRole(role) {
         this.role = role;
+    }
+
+    readAllNotifications() {
+        UserApi.readAllNotifications().then((response) => {
+            if (response.status === 201) {
+                UserApi.getNotifications().then((response) => {
+                    this.setNotifications(response.data.data);
+                });
+            }
+        });
     }
 
     saveToken(token) {

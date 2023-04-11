@@ -30,6 +30,8 @@
 import UserStore from "../store/User/UserStore";
 import {Button} from "antd";
 import {SERVER_URL} from "../base/Api/constants";
+import RequestApi from "../store/Request/RequestApi";
+import RequestStore from "../store/Request/RequestStore";
 
 const RequestView = ({...data}) => {
     return (<div>
@@ -65,9 +67,13 @@ const RequestView = ({...data}) => {
                     },
                 }).then((response) => {
                     if (response.status === 201) {
-                        alert('Отклик успешно отправлен');
+                        RequestApi.getRequests().then(
+                            (response) => {
+                                RequestStore.setData(response.data);
+                                RequestStore.setIsShowData(true);
+                            }
+                        )
                     } else {
-                        alert('Ошибка при отправке отклика');
                     }
                 });
             }}>Откликнуться</Button>)}

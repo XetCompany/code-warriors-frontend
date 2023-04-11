@@ -10,6 +10,9 @@ export const BACKEND_URLS = {
     REQUESTS_CREATE: 'info/request/create/',
     USER_INFO: 'info/user/',
 
+    NOTIFICATIONS: 'info/notifications/',
+    NOTIFICATIONS_READ_ALL: 'info/notifications/read_all/',
+
     PHOTO: 'info/image/',
     VIDEO: 'info/video/',
 };
