@@ -1,11 +1,12 @@
 export const BACKEND_URLS = {
+    RESET_PASSWORD: 'auth/reset_password/reset/',
+    REQUEST_PASSWORD_RESET: 'auth/reset_password/request/',
     LOGIN: 'auth/login/token/',
     REFRESH_TOKEN: 'auth/login/token/refresh/',
     REGISTRATION: 'auth/register/',
     RESPONSE_FOR_REQUEST: 'info/request/response/',
     CATEGORIES: 'info/categories/',
     INFO: 'info/',
-    LOGOUT: 'auth/logout/',
     REQUESTS: 'info/requests/',
     REQUESTS_UPDATE: 'info/request/update/',
     REQUESTS_CREATE: 'info/request/create/',

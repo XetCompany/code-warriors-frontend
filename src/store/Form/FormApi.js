@@ -63,6 +63,30 @@ class FormApi extends ApiClass {
                 return Promise.reject();
             });
     }
+    async requestResetPassword() {
+        const route = BACKEND_URLS.REQUEST_PASSWORD_RESET;
+        const url = new Url({route}).defaultUrl;
+        return await this.sendPost(url, this.form.getFieldsValue(), {})
+            .then((res) => {
+                if (res.status === 200) {
+                    UserStore.setResetPassword(res.data.token);
+                    return Promise.resolve(res.data)
+                }
+                return Promise.reject();
+            });
+    }
+    async resetPassword() {
+        const route = BACKEND_URLS.RESET_PASSWORD;
+        const url = new Url({route}).defaultUrl;
+        return await this.sendPost(url, this.form.getFieldsValue(), {})
+            .then((res) => {
+                if (res.status === 200) {
+                    UserStore.setResetPassword(null);
+                    return Promise.resolve(res.data)
+                }
+                return Promise.reject();
+            });
+    }
 }
 
 const formApi = new FormApi();

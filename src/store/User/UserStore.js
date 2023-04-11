@@ -9,6 +9,7 @@ class UserStore {
         this.role = null;
         this.isAuth = false;
         this.user = null;
+        this.resetPassword = null;
         this.isShowNotification = false;
         this.notifications = [];
 
@@ -86,6 +87,10 @@ class UserStore {
         this.refreshToken = refreshToken;
         localStorage.setItem('accessToken', JSON.stringify(accessToken));
         localStorage.setItem('refreshToken', JSON.stringify(refreshToken));
+    }
+
+    setResetPassword(resetPassword) {
+        this.resetPassword = resetPassword;
     }
 }
 

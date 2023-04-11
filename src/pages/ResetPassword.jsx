@@ -34,22 +34,13 @@ const App = () => {
         form={form}
     >
         <Form.Item
-            label="Имя пользователя"
-            name="username"
+            label="Почта"
+            name="email"
             rules={[{
-                required: true, message: 'Пожалуйста, введите имя пользователя!',
+                required: true, message: 'Пожалуйста, введите почту!',
             },]}
         >
             <Input/>
-        </Form.Item>
-        <Form.Item
-            label="Пароль"
-            name="password"
-            rules={[{
-                required: true, message: 'Пожалуйста, введите пароль!',
-            },]}
-        >
-            <Input.Password/>
         </Form.Item>
         <Form.Item
             wrapperCol={{
@@ -57,10 +48,8 @@ const App = () => {
             }}
         >
             <Button type="primary" htmlType="submit">
-                Сохранить
+                Отправить
             </Button>
-            <NavLink to="/register">Регистрация</NavLink>
-            <NavLink to="/reset-password">Забыли пароль?</NavLink>
         </Form.Item>
     </Form>)
 };

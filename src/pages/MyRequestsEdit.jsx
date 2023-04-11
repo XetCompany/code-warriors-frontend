@@ -2,8 +2,6 @@ import {Button, Form, Input, Select, Upload} from "antd";
 import FormApi from "../store/Form/FormApi";
 import React from "react";
 import UserStore from "../store/User/UserStore";
-// import { BACKEND_URLS } from "../base/Api/constants";
-// import Url from "../base/Api/Url";
 import requestStore from "../store/Request/RequestStore";
 import RequestApi from "../store/Request/RequestApi";
 
@@ -25,15 +23,6 @@ const MyRequestsEdit = () => {
   if (!UserStore.user) {
     return <div>Нет данных</div>
   }
-
-    // const route = BACKEND_URLS.PHOTO;
-    // const photo_url = new Url({route}).defaultUrl;
-
-    // const route2 = BACKEND_URLS.VIDEO;
-    // const video_url = new Url({route: route2}).defaultUrl;
-    // console.log(requestStore.data[0]);
-
-    console.log(requestStore.data);
 
   form.setFieldsValue({
     category: requestStore.data[0].category.id,
