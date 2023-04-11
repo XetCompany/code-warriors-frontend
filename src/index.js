@@ -15,6 +15,7 @@ import MyRequests from './pages/MyRequests';
 import MyRequestsEdit from './pages/MyRequestsEdit';
 import ResetPassword from './pages/ResetPassword';
 import RequestResetPassword from './pages/RequestResetPassword';
+import RequestPage from "./pages/RequestPage";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<BrowserRouter>
@@ -27,6 +28,7 @@ root.render(<BrowserRouter>
         <Route path="/personal-account/edit" element={<PersonalAccountEdit/>}/>
         <Route path="/requests" element={<Requests/>}/>
         <Route path="/request/create" element={<CreateRequest/>}/>
+        <Route path="/request/:id" element={<RequestPage/>}/>
         <Route path="/my-requests" element={<MyRequests/>}/>
         <Route path="/my-request/edit" element={<MyRequestsEdit/>}/>
         <Route path="/reset-password/:token" element={<ResetPassword/>}/>

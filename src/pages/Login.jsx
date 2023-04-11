@@ -1,11 +1,12 @@
 import React from 'react'
 import {Button, Form, Input} from 'antd';
 import FormApi from '../store/Form/FormApi';
-import { NavLink } from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 
-const onFinish = () => {
+const onFinish = (navigate) => {
     FormApi.login().then(r => {
         console.log('Success login:', r);
+        navigate('/requests');
     });
 };
 const onFinishFailed = (errorInfo) => {
@@ -14,6 +15,7 @@ const onFinishFailed = (errorInfo) => {
 const App = () => {
     const [form] = Form.useForm();
     FormApi.setForm(form);
+    const navigate = useNavigate();
     return (<Form
         name="basic"
         labelCol={{
@@ -28,7 +30,9 @@ const App = () => {
         initialValues={{
             remember: true,
         }}
-        onFinish={onFinish}
+        onFinish={() => {
+            onFinish(navigate);
+        }}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
         form={form}
