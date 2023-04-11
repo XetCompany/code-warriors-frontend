@@ -1,35 +1,42 @@
 import ApiClass from '../../base/Api/ApiClass';
-import { USER_IDENTIFICATOR_NAME } from '../../common/constants';
-import { BACKEND_URLS } from '../../base/Api/constants';
-import AdminStore from '../Admin/AdminStore';
+import {BACKEND_URLS} from '../../base/Api/constants';
 import Url from '../../base/Api/Url';
+import UserStore from "./UserStore";
+import FormApi from "../Form/FormApi";
 
 class UserApi extends ApiClass {
-  constructor() {
-    super();
-  }
-
-  async getServerInfo() {
-    const queries = {};
-    let saveRoute;
-    let urlForServerValues;
-    if (AdminStore.isAdminUser) {
-      saveRoute = BACKEND_URLS.SAVE_ADMIN;
-      queries[USER_IDENTIFICATOR_NAME] = AdminStore.selectedUserToken;
-      urlForServerValues = new Url({ route: saveRoute, queries }).formattedUrlWithQuery;
-    } else {
-      saveRoute = BACKEND_URLS.SAVE_USER;
-      urlForServerValues = new Url({ route: saveRoute }).defaultUrl;
+    async getUserInfo() {
+        const route = BACKEND_URLS.USER_INFO;
+        const url = new Url({route}).defaultUrl;
+        const token = UserStore.accessToken;
+        return await this.sendGet(url, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }, false);
     }
 
-    return await this.sendGet(urlForServerValues, {}, true)
-      .then((response) => {
-        const data = response.data;
-        this.setUserStoreInfo(data, true);
-        return data;
-      })
-      .catch(() => null);
-  }
+    async getAccessToken() {
+        const route = BACKEND_URLS.REFRESH_TOKEN;
+        const url = new Url({route}).defaultUrl;
+        const token = UserStore.refreshToken;
+        return await this.sendPost(url, {'refresh': token}, {}, false);
+    }
+
+
+    async updateUserInfo() {
+        const route = BACKEND_URLS.USER_INFO;
+        const url = new Url({route}).defaultUrl;
+        const token = UserStore.accessToken;
+        const data = FormApi.form.getFieldsValue();
+        return await this.sendPut(url, data, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }, false);
+    }
 }
-export default new UserApi();
+
+const userApi = new UserApi();
+export default userApi;
 

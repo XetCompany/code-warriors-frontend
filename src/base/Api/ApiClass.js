@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { USER_IDENTIFICATOR_NAME } from './constants';
 
-class ApiClass { 
-  constructor() {}
+class ApiClass {
 
   get #defaultRequestHeaders() {
     return {
@@ -60,6 +59,18 @@ class ApiClass {
     }
     return await this.sendRequest({
       method: axios.post,
+      url,
+      data,
+      params,
+    });
+  }
+
+  async sendPut(url, data, params) {
+    if (!data) {
+      data = null;
+    }
+    return await this.sendRequest({
+      method: axios.put,
       url,
       data,
       params,

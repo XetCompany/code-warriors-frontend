@@ -1,13 +1,62 @@
-import { makeAutoObservable } from 'mobx';
+import {makeAutoObservable} from 'mobx';
+import UserApi from "./UserApi";
 
 class UserStore {
-  constructor() {
-    makeAutoObservable(this);
-  }
+    constructor() {
+        this.accessToken = null;
+        this.refreshToken = null;
+        this.role = null;
+        this.user = null;
 
-  saveToken(token) {
-    sessionStorage.setItem('token', JSON.stringify(token));
-  }
+        this.init();
+        makeAutoObservable(this);
+    }
+
+    init() {
+        const accessToken = JSON.parse(localStorage.getItem('accessToken'));
+        const refreshToken = JSON.parse(localStorage.getItem('refreshToken'));
+        this.accessToken = accessToken;
+        this.refreshToken = refreshToken;
+
+
+        setTimeout(() => {
+            this.updateUser();
+        });
+    }
+
+    setUser(user) {
+        this.user = user;
+    }
+
+    updateUser() {
+        this.updateAccessToken().then(
+            () => {
+                UserApi.getUserInfo().then((response) => {
+                    this.setUser(response.data.data.user);
+                    this.setRole(response.data.data.user.groups)
+                });
+            }
+        )
+    }
+
+    async updateAccessToken() {
+        const data = await UserApi.getAccessToken();
+        this.accessToken = data.data.access;
+    }
+
+    setRole(role) {
+        this.role = role;
+    }
+
+    saveToken(token) {
+        const accessToken = token.access;
+        const refreshToken = token.refresh;
+        this.accessToken = accessToken;
+        this.refreshToken = refreshToken;
+        localStorage.setItem('accessToken', JSON.stringify(accessToken));
+        localStorage.setItem('refreshToken', JSON.stringify(refreshToken));
+    }
 }
 
-export default new UserStore();
+const userStore = new UserStore();
+export default userStore;

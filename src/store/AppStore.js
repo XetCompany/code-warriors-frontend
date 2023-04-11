@@ -17,4 +17,5 @@ class AppStore {
 
 }
 
-export default new AppStore();
+const appStore = new AppStore();
+export default appStore;

@@ -1,20 +1,38 @@
-import React from 'react'
-import {Button, Form, Input, Radio} from 'antd';
-import FormApi from '../store/Form/FormApi';
+import {Button, Form, Input} from "antd";
+import FormApi from "../store/Form/FormApi";
+import React from "react";
+import UserStore from "../store/User/UserStore";
+import UserApi from "../store/User/UserApi";
 
-const onFinish = () => {
-    FormApi.register().then(r => {
-        console.log('Success:', r);
+const onFinish = (values) => {
+    UserApi.updateUserInfo().then(() => {
+        console.log('Success:', values);
+        UserStore.updateUser();
     });
-};
+}
+
 const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
-};
+}
 
-const Register = () => {
+const PersonalAccountEdit = () => {
     const [form] = Form.useForm();
     FormApi.setForm(form);
+
+    if (!UserStore.user) {
+        return <div>Нет данных</div>
+    }
+
+    form.setFieldsValue({
+        username: UserStore.user.username,
+        email: UserStore.user.email,
+        fullname: UserStore.user.fullname,
+        phone: UserStore.user.phone,
+        description: UserStore.user.description,
+    });
+
     return (<div>
+        <h1>Personal Account Edit</h1>
         <Form
             name="basic"
             labelCol={{
@@ -31,43 +49,38 @@ const Register = () => {
             }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
+            autoComplete="off"
             form={form}
         >
             <Form.Item
                 label="Имя пользователя"
                 name="username"
-                rules={[{
-                    required: true, message: 'Пожалуйста, введите имя пользователя!',
-                },]}
             >
                 <Input/>
             </Form.Item>
             <Form.Item
-                label="Почта"
+                label="Email"
                 name="email"
-                rules={[{
-                    required: true, message: 'Пожалуйста, введите почту!',
-                },]}
             >
                 <Input/>
             </Form.Item>
             <Form.Item
-                label="Пароль"
-                name="password"
-                rules={[{
-                    required: true, message: 'Пожалуйста, введите пароль!',
-                },]}
+                label="ФИО"
+                name="fullname"
             >
-                <Input.Password/>
+                <Input/>
             </Form.Item>
             <Form.Item
-                label="Роль"
-                name="role"
+                label="Телефон"
+                name="phone"
             >
-                <Radio.Group>
-                    <Radio value="customer">Заказчик</Radio>
-                    <Radio value="performer">Исполнитель</Radio>
-                </Radio.Group>
+                <Input/>
+            </Form.Item>
+            <Form.Item
+                label="Описание"
+                name="description"
+            >
+                <Input/>
             </Form.Item>
             <Form.Item
                 wrapperCol={{
@@ -79,6 +92,7 @@ const Register = () => {
                 </Button>
             </Form.Item>
         </Form>
-    </div>)
-};
-export default Register;
+    </div>);
+}
+
+export default PersonalAccountEdit;

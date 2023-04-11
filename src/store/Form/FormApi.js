@@ -1,51 +1,51 @@
 import ApiClass from '../../base/Api/ApiClass';
-import { BACKEND_URLS } from '../../base/Api/constants';
+import {BACKEND_URLS} from '../../base/Api/constants';
 import Url from '../../base/Api/Url';
-import saveToken from '../User/UserStore';
-import axios from 'axios';
+import UserStore from '../User/UserStore';
 
 class FormApi extends ApiClass {
-  constructor() {
-    super();
-    this.form = null;
-  }
-
-  setForm(form) {
-    this.form = form;
-  }
-
-  async register() {
-    let route;
-    let data = new FormData();
-    for (let key in this.form.getFieldsValue()) {
-      data.append(key, this.form.getFieldsValue()[key]);
+    constructor() {
+        super();
+        this.form = null;
     }
-    let url;
-    route = BACKEND_URLS.REGISTRATION;
-    url = new Url({ route }).defaultUrl;
-    const response = await this.sendPost(url, data, {});
-    return response;
-  }
 
-  async login() {
-    let route;
-    let url;
-    let data = new FormData();
-    for (let key in this.form.getFieldsValue()) {
-      data.append(key, this.form.getFieldsValue()[key]);
+    setForm(form) {
+        this.form = form;
     }
-    route = BACKEND_URLS.LOGIN;
-    url = new Url({ route }).defaultUrl;
-    const response = await this.sendPost(url, data, {})
-    .then((res) => {
-      if (res.status === 200) {
-          saveToken(JSON.stringify(res.data));
-          return Promise.resolve()
-      }
-      return Promise.reject();
-    });
-    return response;
-  }
+
+    async register() {
+        const route = BACKEND_URLS.REGISTRATION;
+        const url = new Url({route}).defaultUrl;
+        return await this.sendPost(url, this.form.getFieldsValue(), {});
+    }
+
+    async login() {
+        const route = BACKEND_URLS.LOGIN;
+        const url = new Url({route}).defaultUrl;
+        return await this.sendPost(url, this.form.getFieldsValue(), {})
+            .then((res) => {
+                if (res.status === 200) {
+                    UserStore.saveToken(res.data);
+                    UserStore.setRole(res.data.role);
+                    UserStore.updateUser();
+                    return Promise.resolve(res.data);
+                }
+                return Promise.reject();
+            });
+    }
+
+    async requests() {
+        const route = BACKEND_URLS.REQUESTS;
+        const url = new Url({route}).defaultUrl;
+        return await this.sendGet(url, {}, {})
+            .then((res) => {
+                if (res.status === 200) {
+                    return Promise.resolve(res.data)
+                }
+                return Promise.reject();
+            });
+    }
 }
 
-export default new FormApi();
+const formApi = new FormApi();
+export default formApi;

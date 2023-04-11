@@ -5,22 +5,23 @@ import reportWebVitals from './reportWebVitals';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import NavBar from "./pages/NavBar";
+import PersonalAccount from "./pages/PersonalAccount";
+import PersonalAccountEdit from "./pages/PersonalAccountEdit";
+import Requests from "./pages/Requests";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <BrowserRouter>
-    <nav>
-      <Link to="/">Home</Link>
-      <Link to="/register">Register</Link>
-      <Link to="/login">Login</Link>
-    </nav>
+root.render(<BrowserRouter>
+    <NavBar/>
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home/>}/>
+        <Route path="/register" element={<Register/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/personal-account" element={<PersonalAccount/>}/>
+        <Route path="/personal-account/edit" element={<PersonalAccountEdit/>}/>
+        <Route path="/requests" element={<Requests/>}/>
     </Routes>
-  </BrowserRouter>
-);
+</BrowserRouter>);
 
 reportWebVitals();
