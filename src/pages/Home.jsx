@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 const HomePage = () => {
   return (
     <div>
-        <h2>Home</h2>
+        <h2>hgvhgv</h2>
     </div>
     );
 };

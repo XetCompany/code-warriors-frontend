@@ -4,6 +4,7 @@ import RequestPageApi from "../store/Request/RequestPageApi";
 import {useEffect} from "react";
 import RequestPageStore from "../store/Request/RequestPageStore";
 import RequestView from "../components/Request";
+import { Card } from "antd";
 
 const RequestPage = () => {
     const id = useParams().id;
@@ -22,8 +23,10 @@ const RequestPage = () => {
         return (<div>Загрузка...</div>);
     }
 
-    return (<div>
-        <RequestView {...RequestPageStore.data} isDetailView={true}/>
+    return (<div className="request-page">
+        <Card>
+            <RequestView {...RequestPageStore.data} isDetailView={true}/>
+        </Card>
     </div>);
 
 }

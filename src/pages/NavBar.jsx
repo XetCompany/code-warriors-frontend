@@ -8,34 +8,35 @@ const NavBar = () => {
         userStore.setUser(null);
         userStore.setIsAuth(false);
     }
-    return (<nav>
-        <ul style={{
-            display: 'flex', listStyle: 'none', justifyContent: 'space-around', padding: 0,
-        }}>
-            <li><Link to="/">Home</Link></li>
-            {userStore.user !== null ?
-            <>
-                <li><Link to="/personal-account">Personal Account</Link></li>
-                <li><Link to={"/requests"}>Requests</Link></li>
-                <li><Link to={"/"} onClick={logout}>Logout</Link></li>
-                {userStore.role.includes('customer') ?
+    return (
+    <header className="header">
+        <nav className="navbar">
+            <ul className="navbarul">
+                <li><Link to="/">Home</Link></li>
+                {userStore.user !== null ?
                 <>
-                    <li><Link to={"/request/create"}>Create Request</Link></li>
-                    <li><Link to={"/my-requests"}>My Requests</Link></li>
+                    <li><Link to={"/requests"}>Заказы</Link></li>
+                    {userStore.role.includes('customer') ?
+                    <>
+                        <li><Link to={"/request/create"}>Создать заказ</Link></li>
+                        <li><Link to={"/my-requests"}>Мои заказы</Link></li>
+                    </>
+                    : null
+                    }
+                    <li><Link to="/personal-account">Мой аккаунт</Link></li>
+                    <li><Link to={"/"} onClick={logout}>Выход</Link></li>
                 </>
-                : null
+                : 
+                <>
+                    <li><Link to="/register">Регистрация</Link></li>
+                    <li><Link to="/login">Вход</Link></li>
+                </>
                 }
-            </>
-            : 
-            <>
-                <li><Link to="/register">Register</Link></li>
-                <li><Link to="/login">Login</Link></li>
-            </>
-            }
-            
-            
-        </ul>
-    </nav>)
+                
+                
+            </ul>
+        </nav>
+    </header>)
 }
 
 export default observer(NavBar);

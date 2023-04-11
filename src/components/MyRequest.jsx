@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const MyRequest = ({...data}) => {
   return (
     <div>
-        <h2>Заказ: {data.title}</h2>
+        <h2>{data.title}</h2>
         <div>Заказчик: {data.creator.username}</div>
         <div>Исполнитель: {data.executor.username}</div>
         <div>Категория: {data.category.name}</div>
