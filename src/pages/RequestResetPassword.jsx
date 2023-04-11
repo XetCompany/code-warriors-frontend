@@ -2,23 +2,18 @@ import React from 'react'
 import {Button, Form, Input} from 'antd';
 import FormApi from '../store/Form/FormApi';
 import {observer} from 'mobx-react';
-import { useParams } from 'react-router-dom';
-import userStore from '../store/User/UserStore';
 
 const onFinish = () => {
-    FormApi.resetPassword().then(r => {
+    FormApi.requestResetPassword().then(r => {
         console.log('Success login:', r);
     });
 };
 const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
 };
-const ResetPassword = () => {
-    const token = useParams().token;
-    userStore.setResetPasswordToken(token)
+const RequestResetPassword = () => {
     const [form] = Form.useForm();
     FormApi.setForm(form);
-    form.setFieldValue('token', token);
     return (<Form
         name="basic"
         labelCol={{
@@ -39,20 +34,13 @@ const ResetPassword = () => {
         form={form}
     >
         <Form.Item
-          label="Новый пароль"
-          name="password"
+          label="Введите почту"
+          name="email"
           rules={[{
-              required: true, message: 'Пожалуйста, введите пароль!',
+              required: true, message: 'Пожалуйста, введите почту!',
           },]}
         >
           <Input/>
-        </Form.Item>
-        <Form.Item
-          label="Token"
-          name="token"
-          disabled
-        >
-          <Input value={userStore.resetPassword}/>
         </Form.Item>
         <Form.Item
           wrapperCol={{
@@ -60,10 +48,10 @@ const ResetPassword = () => {
           }}
         >
               <Button type="primary" htmlType="submit">
-                  Сохранить
+                  Отправить
               </Button>
           </Form.Item>
     </Form>)
 };
 
-export default observer(ResetPassword);
+export default observer(RequestResetPassword);

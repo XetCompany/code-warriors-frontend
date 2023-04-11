@@ -60,7 +60,7 @@ const App = () => {
                 Сохранить
             </Button>
             <NavLink to="/register">Регистрация</NavLink>
-            <NavLink to="/reset-password">Забыли пароль?</NavLink>
+            <NavLink to="/request-password-reset">Забыли пароль?</NavLink>
         </Form.Item>
     </Form>)
 };

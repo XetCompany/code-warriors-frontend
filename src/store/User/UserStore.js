@@ -89,7 +89,7 @@ class UserStore {
         localStorage.setItem('refreshToken', JSON.stringify(refreshToken));
     }
 
-    setResetPassword(resetPassword) {
+    setResetPasswordToken(resetPassword) {
         this.resetPassword = resetPassword;
     }
 }

@@ -77,8 +77,13 @@ class FormApi extends ApiClass {
     }
     async resetPassword() {
         const route = BACKEND_URLS.RESET_PASSWORD;
+        let data = {};
         const url = new Url({route}).defaultUrl;
-        return await this.sendPost(url, this.form.getFieldsValue(), {})
+        data = this.form.getFieldsValue();
+        console.log(UserStore.resetPassword)
+        return await this.sendPost(url, data, {
+            headers: {}
+        })
             .then((res) => {
                 if (res.status === 200) {
                     UserStore.setResetPassword(null);
