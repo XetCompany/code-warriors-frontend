@@ -5,25 +5,24 @@ import requestApi from "../store/Request/RequestApi";
 import MyRequest from "../components/MyRequest";
 
 const MyRequests = () => {
-    
     useEffect(() => {
+        RequestStore.setIsShowMyRequests(false);
         requestApi.getMyRequests().then(
             (response) => {
-                console.log(response.data.data);
-                RequestStore.setData(response.data.data);
-                RequestStore.setIsShowData(true);
+                RequestStore.setMyRequests(response.data.data);
+                RequestStore.setIsShowMyRequests(true);
             }
         );
     }, [])
 
-    if (!RequestStore.isShowData) {
+    if (!RequestStore.isShowMyRequests) {
         return <div>Загрузка...</div>;
     }
 
     return (<div>
         <h1>Мои заявки</h1>
         <div>
-            {RequestStore.data.map((request, index) => {
+            {RequestStore.myRequests.map((request, index) => {
                 return <MyRequest key={index} {...request}/>;
             })}
         </div>

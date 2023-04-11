@@ -1,49 +1,78 @@
 import {Button, Form, Input, Select, Upload} from "antd";
 import FormApi from "../store/Form/FormApi";
-import React from "react";
+import React, {useEffect} from "react";
 import UserStore from "../store/User/UserStore";
 import requestStore from "../store/Request/RequestStore";
 import RequestApi from "../store/Request/RequestApi";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
+import RequestStore from "../store/Request/RequestStore";
+import RequestPageApi from "../store/Request/RequestPageApi";
+import RequestPageStore from "../store/Request/RequestPageStore";
+import {observer} from "mobx-react";
 
 const onFinish = (navigate) => {
-  RequestApi.updateRequest().then(() => {
-      requestStore.updateData();
+    RequestApi.updateRequest().then(() => {
+        requestStore.updateData();
         navigate('/my-requests');
-  });
+    });
 }
 
 const onFinishFailed = (errorInfo) => {
-  console.log('Failed:', errorInfo);
+    console.log('Failed:', errorInfo);
 }
 
 const MyRequestsEdit = () => {
-  const [form] = Form.useForm();
-  FormApi.setForm(form);
+    const requestId = useParams().id;
 
-  const navigate = useNavigate();
+    useEffect(() => {
+        RequestStore.setIsShowCategories(false);
+        RequestPageStore.setIsShowData(false);
+        RequestApi.getCategories().then((response) => {
+            const categories = response.data.data.categories;
+            RequestStore.setCategories(categories);
+            RequestStore.setIsShowCategories(true);
+        });
+        RequestPageApi.getRequest(requestId).then(
+            (response) => {
+                RequestPageStore.setData(response.data);
+                RequestPageStore.setIsShowData(true);
+                console.log(45678)
+            }
+        )
+    }, [requestId])
 
-  if (!UserStore.user) {
-    return <div>Нет данных</div>
-  }
 
-  form.setFieldsValue({
-    category: requestStore.data[0].category.id,
-    photos: requestStore.data[0].photos,
-    videos: requestStore.data[0].videos,
-    description: requestStore.data[0].description,
-    title: requestStore.data[0].title,
-    responses: requestStore.data[0].responses,
-    place: requestStore.data[0].place,
-    price_from: requestStore.data[0].price_from,
-    price_to: requestStore.data[0].price_to,
-    deadline_in_days: requestStore.data[0].deadline_in_days,
-    id: requestStore.data[0].id,
-    creator: requestStore.data[0].creator.id,
-  });
+    const [form] = Form.useForm();
+    FormApi.setForm(form);
 
-  return (
-    <div>
+    const navigate = useNavigate();
+
+    if (!RequestStore.isShowCategories) {
+        return <div>Загрузка...</div>;
+    }
+
+    if (!RequestPageStore.isShowData) {
+        return <div>Загрузка...</div>;
+    }
+
+    console.log(RequestPageStore.data)
+
+    form.setFieldsValue({
+        category: RequestPageStore.data.category.id,
+        photos: RequestPageStore.data.photos,
+        videos: RequestPageStore.data.videos,
+        description: RequestPageStore.data.description,
+        title: RequestPageStore.data.title,
+        responses: RequestPageStore.data.responses,
+        place: RequestPageStore.data.place,
+        price_from: RequestPageStore.data.price_from,
+        price_to: RequestPageStore.data.price_to,
+        deadline_in_days: RequestPageStore.data.deadline_in_days,
+        id: RequestPageStore.data.id,
+        creator: RequestPageStore.data.creator.id,
+    });
+
+    return (<div>
         <h1>Edit my request</h1>
         <Form
             name="basic"
@@ -59,11 +88,9 @@ const MyRequestsEdit = () => {
             initialValues={{
                 remember: true,
             }}
-            onFinish={
-                () => {
-                    onFinish(navigate);
-                }
-            }
+            onFinish={() => {
+                onFinish(navigate);
+            }}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
             form={form}
@@ -76,13 +103,11 @@ const MyRequestsEdit = () => {
                 label="Категория"
                 name="category"
             >
-                <Select options={
-                    requestStore.categories.map((category) => {
-                        return {
-                            value: category.id, label: category.name
-                        }
-                    })
-                } />
+                <Select options={requestStore.categories.map((category) => {
+                    return {
+                        value: category.id, label: category.name
+                    }
+                })}/>
 
             </Form.Item>
             <Form.Item
@@ -123,37 +148,37 @@ const MyRequestsEdit = () => {
                 label="Название"
                 name="title"
             >
-                <Input />
+                <Input/>
             </Form.Item>
             <Form.Item
                 label="Описание"
                 name="description"
             >
-                <Input />
+                <Input/>
             </Form.Item>
             <Form.Item
                 label="Желаемая цена от"
                 name="price_from"
             >
-                <Input />
+                <Input/>
             </Form.Item>
             <Form.Item
                 label="Желаемая цена до"
                 name="price_to"
             >
-                <Input />
+                <Input/>
             </Form.Item>
             <Form.Item
                 label="Сроки оказания услуг(дни)"
                 name="deadline_in_days"
             >
-                <Input />
+                <Input/>
             </Form.Item>
             <Form.Item
                 label="Место оказания услуг"
                 name="place"
             >
-                <Input />
+                <Input/>
             </Form.Item>
             <Form.Item
                 wrapperCol={{
@@ -165,8 +190,7 @@ const MyRequestsEdit = () => {
                 </Button>
             </Form.Item>
         </Form>
-    </div>
-  )
+    </div>)
 }
 
-export default MyRequestsEdit;
+export default observer(MyRequestsEdit);
