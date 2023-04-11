@@ -2,14 +2,14 @@ import {makeAutoObservable} from "mobx";
 
 class RequestStore {
     constructor() {
-        this.isRequesting = false;
+        this.isShowData = false;
         this.error = null;
         this.data = null;
         makeAutoObservable(this);
     }
 
-    setRequesting(isRequesting) {
-        this.isRequesting = isRequesting;
+    setIsShowData(isShowData) {
+        this.isShowData = isShowData;
     }
 
     setError(error) {

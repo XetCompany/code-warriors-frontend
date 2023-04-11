@@ -6,21 +6,19 @@ import RequestApi from "../store/Request/RequestApi";
 
 const Requests = () => {
     useEffect(() => {
-        RequestStore.setRequesting(true);
         RequestApi.getRequests().then(
             (response) => {
+                console.log('Success:', response);
                 RequestStore.setData(response.data);
-                RequestStore.setRequesting(false);
+                RequestStore.setIsShowData(true);
             }
 
         );
     }, [])
 
-    if (RequestStore.isRequesting) {
+    if (!RequestStore.isShowData) {
         return <div>Загрузка...</div>;
     }
-
-    console.log(RequestStore.data);
 
     return (<div>
         <h1>Заявки</h1>
