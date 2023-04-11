@@ -3,6 +3,7 @@ import {makeAutoObservable} from "mobx";
 class RequestStore {
     constructor() {
         this.isShowData = false;
+        this.isShowCategories = false;
         this.error = null;
         this.data = null;
         this.categories = null;
@@ -11,6 +12,10 @@ class RequestStore {
 
     setCategories(categories) {
         this.categories = categories;
+    }
+
+    setIsShowCategories(isShowCategories) {
+        this.isShowCategories = isShowCategories;
     }
 
     setIsShowData(isShowData) {
