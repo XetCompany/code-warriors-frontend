@@ -1,6 +1,7 @@
 import React from 'react'
 import {Button, Form, Input, Radio} from 'antd';
 import FormApi from '../store/Form/FormApi';
+import { NavLink } from 'react-router-dom';
 
 const onFinish = () => {
     FormApi.register().then(r => {
@@ -74,6 +75,9 @@ const Register = () => {
                     offset: 8, span: 16,
                 }}
             >
+                <div>
+                    <NavLink to="/login">Войти</NavLink>
+                </div>
                 <Button type="primary" htmlType="submit">
                     Сохранить
                 </Button>

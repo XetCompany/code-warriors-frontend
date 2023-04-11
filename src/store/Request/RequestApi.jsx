@@ -20,7 +20,7 @@ class RequestApi extends ApiClass {
         return await this.sendGet(url);
     }
     async updateRequest() {
-        const route = BACKEND_URLS.REQUESTS + 'update/' + requestStore.data[0].id + '/';
+        const route = BACKEND_URLS.REQUESTS_UPDATE + requestStore.data[0].id + '/';
         const url = new Url({route}).defaultUrl;
         const token = UserStore.accessToken;
         const data = FormApi.form.getFieldsValue();

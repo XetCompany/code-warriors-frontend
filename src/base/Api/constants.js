@@ -7,6 +7,7 @@ export const BACKEND_URLS = {
     INFO: 'info/',
     LOGOUT: 'auth/logout/',
     REQUESTS: 'info/requests/',
+    REQUESTS_UPDATE: 'info/request/update/',
     REQUESTS_CREATE: 'info/request/create/',
     USER_INFO: 'info/user/',
     PHOTO: 'info/image/',
@@ -16,7 +17,7 @@ export const BACKEND_URLS = {
 };
 Object.freeze(BACKEND_URLS);
 
-export const SERVER_URL = 'http://6.tcp.eu.ngrok.io:16612/api/';
+export const SERVER_URL = 'http://6.tcp.eu.ngrok.io:13444/api/';
 
 export const BACKEND_SEARCH_PATTERNS = {
     PRICE: 'price', CATEGORY: 'category', SUBCATEGORY: 'subcategory',

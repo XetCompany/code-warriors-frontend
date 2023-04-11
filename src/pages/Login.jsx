@@ -2,10 +2,10 @@ import React from 'react'
 import {Button, Form, Input} from 'antd';
 import FormApi from '../store/Form/FormApi';
 import userStore from '../store/User/UserStore';
+import { NavLink } from 'react-router-dom';
 
 const onFinish = () => {
     FormApi.login().then(r => {
-        userStore.setIsAuth(true);
         console.log('Success login:', r);
     });
 };
@@ -60,6 +60,7 @@ const App = () => {
             <Button type="primary" htmlType="submit">
                 Сохранить
             </Button>
+            <NavLink to="/register">Регистрация</NavLink>
         </Form.Item>
     </Form>)
 };

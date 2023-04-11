@@ -33,18 +33,21 @@ const MyRequestsEdit = () => {
     // const video_url = new Url({route: route2}).defaultUrl;
     // console.log(requestStore.data[0]);
 
+    console.log(requestStore.data);
+
   form.setFieldsValue({
-    creator: UserStore.userId,
-    category: requestStore.data.category,
-    photos: requestStore.data.photos,
-    videos: requestStore.data.videos,
-    description: requestStore.data.description,
-    responses: requestStore.data.responses,
-    place: requestStore.data.place,
-    price_from: requestStore.data.price_from,
-    price_to: requestStore.data.price_to,
-    deadline_in_days: requestStore.data.deadline_in_days,
-    id: requestStore.data.id,
+    category: requestStore.data[0].category.id,
+    photos: requestStore.data[0].photos,
+    videos: requestStore.data[0].videos,
+    description: requestStore.data[0].description,
+    title: requestStore.data[0].title,
+    responses: requestStore.data[0].responses,
+    place: requestStore.data[0].place,
+    price_from: requestStore.data[0].price_from,
+    price_to: requestStore.data[0].price_to,
+    deadline_in_days: requestStore.data[0].deadline_in_days,
+    id: requestStore.data[0].id,
+    creator: requestStore.data[0].creator.id,
   });
 
   return (
@@ -70,10 +73,21 @@ const MyRequestsEdit = () => {
             form={form}
         >
             <Form.Item
+                label="Заказчик"
+                name="creator"
+            >{UserStore.user.username}</Form.Item>
+            <Form.Item
                 label="Категория"
                 name="category"
             >
-                <Select />
+                <Select options={
+                    requestStore.categories.map((category) => {
+                        return {
+                            value: category.id, label: category.name
+                        }
+                    })
+                } />
+                
             </Form.Item>
             <Form.Item
                 label="Фотографии"

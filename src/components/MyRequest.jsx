@@ -9,7 +9,7 @@ const MyRequest = ({...data}) => {
         <h2>Заказ: {data.title}</h2>
         <div>Заказчик: {data.creator.username}</div>
         <div>Исполнитель: {data.executor.username}</div>
-        <div>Категория: {data.category}</div>
+        <div>Категория: {data.category.name}</div>
         <div>Фотографии: {data.photos.map((photo, index) => {
             return (<span key={index}>{photo}{index !== data.photos.length - 1 ? ', ' : ''}</span>);
         })}</div>

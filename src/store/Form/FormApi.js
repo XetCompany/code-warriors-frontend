@@ -16,7 +16,7 @@ class FormApi extends ApiClass {
     async register() {
         const route = BACKEND_URLS.REGISTRATION;
         const url = new Url({route}).defaultUrl;
-        return await this.sendPost(url, this.form.getFieldsValue(), {});
+        return await this.sendPost(url, this.form.getFieldsValue(), {})
     }
 
     async login() {
@@ -25,12 +25,13 @@ class FormApi extends ApiClass {
         return await this.sendPost(url, this.form.getFieldsValue(), {})
             .then((res) => {
                 if (res.status === 200) {
+                    UserStore.setIsAuth(true);
                     UserStore.saveToken(res.data);
                     UserStore.updateUser();
                     return Promise.resolve(res.data);
                 }
                 return Promise.reject();
-            });
+            })
     }
 
     async requests() {

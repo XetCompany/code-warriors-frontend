@@ -9,6 +9,7 @@ const Requests = () => {
     useEffect(() => {
         RequestApi.getRequests().then(
             (response) => {
+                console.log(response.data);
                 UserStore.setUserById(response.data[0].creator.id);
                 RequestStore.setData(response.data);
                 RequestStore.setIsShowData(true);

@@ -6,10 +6,12 @@ import RequestStore from "../store/Request/RequestStore";
 
 const RequestView = ({...data}) => {
     return (<div>
+        {console.log(data)}
         <h2>Информация о заказе</h2>
+        {console.log(data.category.name)}
         <div>Заказчик: {data.creator.username}</div>
         <div>Исполнитель: {data.executor.username}</div>
-        <div>Категория: {data.category}</div>
+        <div>Категория: {data.category.name}</div>
         <div>Фотографии: {data.photos.map((photo, index) => {
             return (<span key={index}>{photo}{index !== data.photos.length - 1 ? ', ' : ''}</span>);
         })}</div>

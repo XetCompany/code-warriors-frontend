@@ -4,6 +4,10 @@ import userStore from "../store/User/UserStore";
 import {observer} from "mobx-react";
 
 const NavBar = () => {
+    const logout = () => {
+        userStore.setUser(null);
+        userStore.setIsAuth(false);
+    }
     return (<nav>
         <ul style={{
             display: 'flex', listStyle: 'none', justifyContent: 'space-around', padding: 0,
@@ -13,6 +17,7 @@ const NavBar = () => {
             <>
                 <li><Link to="/personal-account">Personal Account</Link></li>
                 <li><Link to={"/requests"}>Requests</Link></li>
+                <li><Link to={"/"} onClick={logout}>Logout</Link></li>
                 {userStore.role.includes('customer') ?
                 <>
                     <li><Link to={"/request/create"}>Create Request</Link></li>
