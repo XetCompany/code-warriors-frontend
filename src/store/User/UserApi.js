@@ -8,18 +8,14 @@ class UserApi extends ApiClass {
     async getUserInfo() {
         const route = BACKEND_URLS.USER_INFO;
         const url = new Url({route}).defaultUrl;
-        const token = UserStore.accessToken;
-        return await this.sendGet(url, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }, false);
+        return await this.sendGet(url, {}, true);
     }
 
     async getAccessToken() {
         const route = BACKEND_URLS.REFRESH_TOKEN;
         const url = new Url({route}).defaultUrl;
         const token = UserStore.refreshToken;
+        console.log('getAccessToken', token);
         return await this.sendPost(url, {'refresh': token}, {}, false);
     }
 
@@ -27,13 +23,8 @@ class UserApi extends ApiClass {
     async updateUserInfo() {
         const route = BACKEND_URLS.USER_INFO;
         const url = new Url({route}).defaultUrl;
-        const token = UserStore.accessToken;
         const data = FormApi.form.getFieldsValue();
-        return await this.sendPut(url, data, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }, false);
+        return await this.sendPut(url, data, {}, true);
     }
 }
 
