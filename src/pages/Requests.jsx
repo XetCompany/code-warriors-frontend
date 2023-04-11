@@ -3,6 +3,7 @@ import RequestView from "../components/Request";
 import {observer} from "mobx-react";
 import RequestStore from "../store/Request/RequestStore";
 import RequestApi from "../store/Request/RequestApi";
+import {Card} from "antd";
 
 const Requests = () => {
     useEffect(() => {
@@ -21,11 +22,13 @@ const Requests = () => {
 
     return (<div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
         <h1>Заявки</h1>
-        <div>
-            {RequestStore.data.map((request, index) => {
-                return <RequestView key={index} {...request}/>;
-            })}
-        </div>
+        <Card>
+            <div>
+                {RequestStore.data.map((request, index) => {
+                    return <RequestView key={index} {...request}/>;
+                })}
+            </div>
+        </Card>
     </div>);
 }
 

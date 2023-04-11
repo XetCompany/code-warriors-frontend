@@ -4,11 +4,12 @@ import React from "react";
 import UserStore from "../store/User/UserStore";
 import requestStore from "../store/Request/RequestStore";
 import RequestApi from "../store/Request/RequestApi";
+import {useNavigate} from "react-router-dom";
 
-const onFinish = (values) => {
+const onFinish = (navigate) => {
   RequestApi.updateRequest().then(() => {
-      console.log('Success:', values);
       requestStore.updateData();
+        navigate('/my-requests');
   });
 }
 
@@ -19,6 +20,8 @@ const onFinishFailed = (errorInfo) => {
 const MyRequestsEdit = () => {
   const [form] = Form.useForm();
   FormApi.setForm(form);
+
+  const navigate = useNavigate();
 
   if (!UserStore.user) {
     return <div>Нет данных</div>
@@ -56,7 +59,11 @@ const MyRequestsEdit = () => {
             initialValues={{
                 remember: true,
             }}
-            onFinish={onFinish}
+            onFinish={
+                () => {
+                    onFinish(navigate);
+                }
+            }
             onFinishFailed={onFinishFailed}
             autoComplete="off"
             form={form}
@@ -76,7 +83,7 @@ const MyRequestsEdit = () => {
                         }
                     })
                 } />
-                
+
             </Form.Item>
             <Form.Item
                 label="Фотографии"

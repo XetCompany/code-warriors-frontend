@@ -15,7 +15,7 @@ const RequestView = ({isDetailView=false, ...data}) => {
 
     return (<div>
         {
-            !isDetailView ? <Link to={'/request/' + data.id}><h2>Заказ: {data.title}</h2></Link>
+            !isDetailView ? <Link to={'/request/' + data.id}><h2 style={{display: 'flex', justifyContent: 'center'}}>{data.title}</h2></Link>
                 : <h2>Заказ: {data.title}</h2>
         }
         <div>Заказчик: {data.creator.username}</div>
