@@ -1,6 +1,7 @@
 import React from 'react'
 import {Button, Form, Input, Radio} from 'antd';
 import FormApi from '../store/Form/FormApi';
+import userStore from '../store/User/UserStore';
 
 const onFinish = () => {
     FormApi.register().then(r => {

@@ -1,19 +1,18 @@
 import React, {useEffect} from "react";
-import RequestView from "../components/Request";
 import {observer} from "mobx-react";
 import RequestStore from "../store/Request/RequestStore";
-import RequestApi from "../store/Request/RequestApi";
-import UserStore from "../store/User/UserStore";
+import requestApi from "../store/Request/RequestApi";
+import MyRequest from "../components/MyRequest";
 
-const Requests = () => {
+const MyRequests = () => {
+    
     useEffect(() => {
-        RequestApi.getRequests().then(
+        requestApi.getMyRequests().then(
             (response) => {
-                UserStore.setUserById(response.data[0].creator.id);
-                RequestStore.setData(response.data);
+                console.log(response.data.data);
+                RequestStore.setData(response.data.data);
                 RequestStore.setIsShowData(true);
             }
-
         );
     }, [])
 
@@ -22,13 +21,13 @@ const Requests = () => {
     }
 
     return (<div>
-        <h1>Заявки</h1>
+        <h1>Мои заявки</h1>
         <div>
             {RequestStore.data.map((request, index) => {
-                return <RequestView key={index} {...request}/>;
+                return <MyRequest key={index} {...request}/>;
             })}
         </div>
     </div>);
 }
 
-export default observer(Requests);
+export default observer(MyRequests);

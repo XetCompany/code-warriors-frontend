@@ -3,9 +3,11 @@ import UserApi from "./UserApi";
 
 class UserStore {
     constructor() {
+        this.userId = null;
         this.accessToken = null;
         this.refreshToken = null;
         this.role = null;
+        this.isAuth = false;
         this.user = null;
 
         this.init();
@@ -28,12 +30,21 @@ class UserStore {
         this.user = user;
     }
 
+    setIsAuth(isAuth) {
+        this.isAuth = isAuth;
+    }
+
+    setUserById(id) {
+        this.userId = id;
+    }
+
     updateUser() {
         this.updateAccessToken().then(
             () => {
                 UserApi.getUserInfo().then((response) => {
                     this.setUser(response.data.data.user);
-                    this.setRole(response.data.data.user.groups)
+                    this.setUserById(response.data.data.user.id);
+                    this.setRole(response.data.data.user.groups);
                 });
             }
         )

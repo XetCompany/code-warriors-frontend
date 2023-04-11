@@ -9,13 +9,12 @@ export const BACKEND_URLS = {
     REQUESTS: 'info/requests/',
     REQUESTS_CREATE: 'info/request/create/',
     USER_INFO: 'info/user/',
-
     PHOTO: 'info/image/',
     VIDEO: 'info/video/',
 };
 Object.freeze(BACKEND_URLS);
 
-export const SERVER_URL = 'http://127.0.0.1:8000/api/';
+export const SERVER_URL = 'http://6.tcp.eu.ngrok.io:16612/api/';
 
 export const BACKEND_SEARCH_PATTERNS = {
     PRICE: 'price', CATEGORY: 'category', SUBCATEGORY: 'subcategory',

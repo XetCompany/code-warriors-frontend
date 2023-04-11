@@ -1,9 +1,11 @@
 import React from 'react'
 import {Button, Form, Input} from 'antd';
 import FormApi from '../store/Form/FormApi';
+import userStore from '../store/User/UserStore';
 
 const onFinish = () => {
     FormApi.login().then(r => {
+        userStore.setIsAuth(true);
         console.log('Success login:', r);
     });
 };

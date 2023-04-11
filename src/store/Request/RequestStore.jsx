@@ -25,6 +25,10 @@ class RequestStore {
         this.data = data;
     }
 
+    updateData(data) {
+        this.data = data;
+    }
+
 }
 
 const requestStore = new RequestStore();

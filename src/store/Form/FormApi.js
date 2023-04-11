@@ -26,7 +26,6 @@ class FormApi extends ApiClass {
             .then((res) => {
                 if (res.status === 200) {
                     UserStore.saveToken(res.data);
-                    UserStore.setRole(res.data.role);
                     UserStore.updateUser();
                     return Promise.resolve(res.data);
                 }
@@ -40,6 +39,8 @@ class FormApi extends ApiClass {
         return await this.sendGet(url, {}, {})
             .then((res) => {
                 if (res.status === 200) {
+                    console.log(res.data);
+                    UserStore.setUserById(res.data.creator.id);
                     return Promise.resolve(res.data)
                 }
                 return Promise.reject();

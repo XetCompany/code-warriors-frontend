@@ -1,10 +1,12 @@
 import UserStore from "../store/User/UserStore";
 import {Button} from "antd";
 import {SERVER_URL} from "../base/Api/constants";
+import { Link } from "react-router-dom";
 
-const RequestView = ({...data}) => {
-    return (<div>
-        <h2>Информация о заказе</h2>
+const MyRequest = ({...data}) => {
+  return (
+    <div>
+        <h2>Заказ: {data.title}</h2>
         <div>Заказчик: {data.creator.username}</div>
         <div>Исполнитель: {data.executor.username}</div>
         <div>Категория: {data.category}</div>
@@ -17,7 +19,6 @@ const RequestView = ({...data}) => {
         <div>Отклики: {data.responses.map((response, index) => {
             return (<span key={index}>{response.username}{index !== data.responses.length - 1 ? ', ' : ''}</span>);
         })}</div>
-        <div>Название: {data.title}</div>
         <div>Описание: {data.description}</div>
         <div>Цена от: {data.price_from}</div>
         <div>Цена до: {data.price_to}</div>
@@ -26,23 +27,25 @@ const RequestView = ({...data}) => {
         <div>Активен: {data.is_active ? 'Да' : 'Нет'}</div>
         <div>Создан: {data.created_at}</div>
         <div>Обновлен: {data.updated_at}</div>
-        {
-            UserStore.role && UserStore.role.includes('performer') && (<Button type="primary" onClick={() => {
-                const url = SERVER_URL + 'info/request/' + data.id + '/add_response/';
+      {
+            UserStore.role && UserStore.role.includes('customer') && (<Button type="primary" onClick={() => {
+                const url = SERVER_URL + 'info/request/remove/' + data.id + '/';
                 fetch(url, {
-                    method: 'POST',
+                    method: 'DELETE',
                     headers: {
                         Authorization: 'Bearer ' + UserStore.accessToken,
                     },
                 }).then((response) => {
-                    if (response.status === 201) {
-                        alert('Отклик успешно отправлен');
+                    if (response.status === 204) {
+                        alert('Заказ успешно удален');
                     } else {
-                        alert('Ошибка при отправке отклика');
+                        alert('Ошибка при удалении заказа');
                     }
                 });
-            }}>Откликнуться</Button>)} 
-    </div>);
+            }}>Удалить</Button>)}
+            <Link to="/my-request/edit">Редактировать</Link>
+    </div>
+  )
 }
 
-export default RequestView;
+export default MyRequest;
