@@ -1,11 +1,12 @@
 import React from 'react'
 import {Button, Form, Input, Radio} from 'antd';
 import FormApi from '../store/Form/FormApi';
-import { NavLink } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
-const onFinish = () => {
+const onFinish = (navigate) => {
     FormApi.register().then(r => {
         console.log('Success:', r);
+        navigate('/login');
     });
 };
 const onFinishFailed = (errorInfo) => {
@@ -15,6 +16,7 @@ const onFinishFailed = (errorInfo) => {
 const Register = () => {
     const [form] = Form.useForm();
     FormApi.setForm(form);
+    const navigate = useNavigate();
     return (<div>
         <Form
             name="basic"
@@ -30,7 +32,9 @@ const Register = () => {
             initialValues={{
                 remember: true,
             }}
-            onFinish={onFinish}
+            onFinish={() => {
+                onFinish(navigate);
+            }}
             onFinishFailed={onFinishFailed}
             form={form}
         >
@@ -76,7 +80,7 @@ const Register = () => {
                 }}
             >
                 <Button type="primary" htmlType="submit">
-                    Сохранить
+                    Зарегистрироваться
                 </Button>
                 <p>
                     Уже есть аккаунт?
