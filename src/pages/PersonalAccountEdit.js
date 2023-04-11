@@ -1,4 +1,4 @@
-import {Button, Form, Input} from "antd";
+import {Button, Card, Form, Input} from "antd";
 import FormApi from "../store/Form/FormApi";
 import React from "react";
 import UserStore from "../store/User/UserStore";
@@ -34,69 +34,71 @@ const PersonalAccountEdit = () => {
         description: UserStore.user.description,
     });
 
-    return (<div>
-        <h1>Personal Account Edit</h1>
-        <Form
-            name="basic"
-            labelCol={{
-                span: 8,
-            }}
-            wrapperCol={{
-                span: 16,
-            }}
-            style={{
-                maxWidth: 600,
-            }}
-            initialValues={{
-                remember: true,
-            }}
-            onFinish={() => {
-                onFinish(navigate);
-            }}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off"
-            form={form}
-        >
-            <Form.Item
-                label="Имя пользователя"
-                name="username"
-            >
-                <Input/>
-            </Form.Item>
-            <Form.Item
-                label="Email"
-                name="email"
-            >
-                <Input/>
-            </Form.Item>
-            <Form.Item
-                label="ФИО"
-                name="fullname"
-            >
-                <Input/>
-            </Form.Item>
-            <Form.Item
-                label="Телефон"
-                name="phone"
-            >
-                <Input/>
-            </Form.Item>
-            <Form.Item
-                label="Описание"
-                name="description"
-            >
-                <Input/>
-            </Form.Item>
-            <Form.Item
-                wrapperCol={{
-                    offset: 8, span: 16,
+    return (<div className="account">
+        <h1>Редактировать профиль</h1>
+        <Card>
+            <Form
+                name="basic"
+                labelCol={{
+                    span: 8,
                 }}
+                wrapperCol={{
+                    span: 16,
+                }}
+                style={{
+                    width: 600,
+                }}
+                initialValues={{
+                    remember: true,
+                }}
+                onFinish={() => {
+                    onFinish(navigate);
+                }}
+                onFinishFailed={onFinishFailed}
+                autoComplete="off"
+                form={form}
             >
-                <Button type="primary" htmlType="submit">
-                    Сохранить
-                </Button>
-            </Form.Item>
-        </Form>
+                <Form.Item
+                    label="Имя пользователя"
+                    name="username"
+                >
+                    <Input/>
+                </Form.Item>
+                <Form.Item
+                    label="Email"
+                    name="email"
+                >
+                    <Input/>
+                </Form.Item>
+                <Form.Item
+                    label="ФИО"
+                    name="fullname"
+                >
+                    <Input/>
+                </Form.Item>
+                <Form.Item
+                    label="Телефон"
+                    name="phone"
+                >
+                    <Input/>
+                </Form.Item>
+                <Form.Item
+                    label="Описание"
+                    name="description"
+                >
+                    <Input/>
+                </Form.Item>
+                <Form.Item
+                    wrapperCol={{
+                        offset: 8, span: 16,
+                    }}
+                >
+                    <Button type="primary" htmlType="submit">
+                        Сохранить
+                    </Button>
+                </Form.Item>
+            </Form>
+        </Card>
     </div>);
 }
 

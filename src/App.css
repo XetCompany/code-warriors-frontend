@@ -82,3 +82,67 @@
   flex-direction: column;
   align-items: center;
 }
+
+.my-request-edit {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.account {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.account h1 {
+  font-size: 30px;
+  font-weight: 400;
+  color: #000;
+}
+
+.register {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register h1 {
+  font-size: 30px;
+  font-weight: 400;
+  color: #000;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login h1 {
+  font-size: 30px;
+  font-weight: 400;
+  color: #000;
+}
+
+.reset-password {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reset-password h1 {
+  font-size: 30px;
+  font-weight: 400;
+  color: #000;
+}

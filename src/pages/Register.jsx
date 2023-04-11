@@ -17,8 +17,8 @@ const Register = () => {
     const [form] = Form.useForm();
     FormApi.setForm(form);
     const navigate = useNavigate();
-    return (<div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
-        <h1>Вход</h1>
+    return (<div className='register'>
+        <h1>Регистрация</h1>
         <Card>
             <Form
                 name="basic"
@@ -29,7 +29,7 @@ const Register = () => {
                     span: 16,
                 }}
                 style={{
-                    maxWidth: 600,
+                    width: 600,
                 }}
                 initialValues={{
                     remember: true,

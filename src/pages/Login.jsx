@@ -17,7 +17,8 @@ const App = () => {
     const [form] = Form.useForm();
     FormApi.setForm(form);
     const navigate = useNavigate();
-    return (<div style={{display: 'flex', justifyContent: 'center'}}>
+    return (<div className='login'>
+        <h1>Вход</h1>
         <Card>
             <Form
                 name="basic"
@@ -28,7 +29,7 @@ const App = () => {
                     span: 16,
                 }}
                 style={{
-                    maxWidth: 600,
+                    width: 600,
                 }}
                 initialValues={{
                     remember: true,

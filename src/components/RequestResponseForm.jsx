@@ -38,7 +38,7 @@ const RequestResponseForm = ({request_id}) => {
             span: 16,
         }}
         style={{
-            maxWidth: 600,
+            width: 600,
         }}
         initialValues={{
             remember: true,

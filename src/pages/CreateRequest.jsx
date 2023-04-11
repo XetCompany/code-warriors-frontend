@@ -53,7 +53,7 @@ const CreateRequest = () => {
                 wrapperCol={{
                     span: 16,
                 }}
-                width='1000vw'
+                style={{width: 600}}
                 initialValues={{
                     remember: true,
                 }}
