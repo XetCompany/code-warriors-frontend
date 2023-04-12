@@ -16,8 +16,8 @@ const User = ({username, email, groups, ...data}) => {
 
     console.log(data);
 
-    return (<div>
-        <h1>Информация о пользователе</h1>
+    return (<div style={{width: '100%'}}>
+        <h3 style={{fontWeight: 'bold'}}>Информация о пользователе</h3>
         <div>Имя пользователя: {username}</div>
         <div>Почта: {email}</div>
         <div>Имя: {data.fullname}</div>

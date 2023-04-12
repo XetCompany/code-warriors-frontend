@@ -27,7 +27,6 @@ const User = () => {
     }
 
     return <div>
-        <h2>Информация о пользователе</h2>
         <UserCard isMyProfile={false} user={UserCardStore.user}/>
         {UserCardStore.isUserCommentLoaded && <UserCommentCard comments={UserCardStore.comments}/>}
     </div>;
