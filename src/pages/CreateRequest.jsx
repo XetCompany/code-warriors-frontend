@@ -1,4 +1,4 @@
-import {Button, Form, Input, Select, Upload, Card} from "antd";
+import {Button, Form, Input, Select, Upload} from "antd";
 import FormApi from "../store/Form/FormApi";
 import React, {useEffect} from "react";
 import RequestApi from "../store/Request/RequestApi";
@@ -141,7 +141,7 @@ const CreateRequest = () => {
                             let imageList = [];
                             event.fileList.forEach((file) => {
                                 if (file.response) {
-                                    imageList.push(file.response.image);
+                                    imageList.push(file.response.photo);
                                 }
                             });
                             return imageList;

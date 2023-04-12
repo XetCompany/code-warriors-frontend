@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 const UserCard = ({isMyProfile, user}) => {
     return <Card style={{maxWidth: '50vw'}}>
         <div>
-            <User {...user} />
+            <User {...user} groups={user.groups}/>
         </div>
         {
             isMyProfile && <div>

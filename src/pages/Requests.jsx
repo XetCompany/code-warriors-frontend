@@ -2,7 +2,6 @@ import React, {useEffect} from "react";
 import {observer} from "mobx-react";
 import RequestStore from "../store/Request/RequestStore";
 import RequestApi from "../store/Request/RequestApi";
-import { Card } from "antd";
 import RequestCard from "../components/RequestCard";
 import UserStore from "../store/User/UserStore";
 

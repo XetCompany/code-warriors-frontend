@@ -10,6 +10,7 @@ class RequestStore {
         this.categories = null;
         this.isShowMyRequests = false;
         this.myRequests = null;
+        this.chosenCategories = [];
         makeAutoObservable(this);
     }
 
@@ -54,6 +55,16 @@ class RequestStore {
     updateData(data) {
         this.data = data;
     }
+
+    addChosenCategory(category) {
+        this.chosenCategories.push(category);
+    }
+
+    removeChosenCategory(category) {
+        this.chosenCategories = this.chosenCategories.filter((chosen_category) => chosen_category.id !== category.id);
+    }
+
+
 
 }
 

@@ -105,8 +105,8 @@ const RequestCard = ({isMyCard = false, isDetailView = false, ...data}) => {
 
     return (<Card>
         {!isDetailView ? <Link to={'/request/' + data.id}><h2>{data.title}</h2></Link> : <h2>{data.title}</h2>}
-        <div>Заказчик: {data.creator.username}</div>
-        <div>Исполнитель: {data.executor.username}</div>
+        <div>Заказчик: <Link to={'/user/' + data.creator.id}>{data.creator.username}</Link></div>
+        <div>Исполнитель: <Link to={'/user/' + data.executor.id}>{data.executor.username}</Link></div>
         <div>Категория: {data.category.name}</div>
         <div>Фотографии: {data.photos.map((photo, index) => {
             return (<span key={index}>{photo}{index !== data.photos.length - 1 ? ', ' : ''}</span>);

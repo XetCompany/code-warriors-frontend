@@ -1,10 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import Being from '../img/Being.png';
-import Union from '../img/Union.png';
 import Img1 from '../img/pngwing2.png';
-import Img2 from "../img/Group27.png";
-import Img3 from "../img/Group26.png";
 import Img4 from "../img/Conversation.png";
 
 const HomePage = () => {
@@ -24,6 +21,7 @@ const HomePage = () => {
                     <button className="button_but" value="Ремонт мотоциклов">Ремонт мотоциклов</button>
                 </li>
                 <li>
+                    {/* TODO: сделать рандомно из существующих */}
                     <button className="button_but" value="Вёрстка">Вёрстка</button>
                 </li>
                 <li>

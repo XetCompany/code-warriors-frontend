@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
@@ -16,13 +16,15 @@ import RequestResetPassword from './pages/RequestResetPassword';
 import RequestPage from "./pages/RequestPage";
 import Rating from './pages/Rating';
 import { observer } from 'mobx-react';
+import Performers from "./pages/Performers";
+import User from "./pages/User";
 
 function App() {
-  const [load, setLoad] = useState(false);
+  // const [load, setLoad] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
-      setLoad(true);
+      // setLoad(true);
     }, 2000);
   }, []);
   return (
@@ -45,6 +47,8 @@ function App() {
           <Route path="/reset-password/:token" element={<ResetPassword/>}/>
           <Route path="/request-password-reset" element={<RequestResetPassword/>}/>
           <Route path="/rating" element={<Rating />}/>
+          <Route path="/performers" element={<Performers />}/>
+          <Route path="/user/:id" element={<User />}/>
         </Routes>
       </BrowserRouter>
       {/* </div>

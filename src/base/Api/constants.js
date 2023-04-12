@@ -11,6 +11,8 @@ export const BACKEND_URLS = {
     REQUESTS_UPDATE: 'info/request/update/',
     REQUESTS_CREATE: 'info/request/create/',
     USER_INFO: 'info/user/',
+    USER_DETAILS: 'info/user/',
+    USER_COMMENTS: 'info/reviews/list/',
     PHOTO: 'info/image/',
     RATING: 'info/rating/',
     REVIEW_CREATE: 'info/reviews/create/',
@@ -20,20 +22,10 @@ export const BACKEND_URLS = {
 };
 Object.freeze(BACKEND_URLS);
 
-export const SERVER_URL = 'http://6.tcp.eu.ngrok.io:13444/api/';
+export const SERVER_URL = 'http://127.0.0.1:8000/api/';
 
 export const BACKEND_SEARCH_PATTERNS = {
     PRICE: 'price', CATEGORY: 'category', SUBCATEGORY: 'subcategory',
 };
 Object.freeze(BACKEND_SEARCH_PATTERNS);
 
-export const NOTIFICATION_PLACEMENT = Object.freeze({
-    TOP: 'top',
-    BOTTOM: 'bottom',
-    TOP_LEFT: 'topLeft',
-    TOP_RIGHT: 'topRight',
-    BOTTOM_LEFT: 'bottomLeft',
-    BOTTOM_RIGHT: 'bottomRight',
-});
-
-export const USER_IDENTIFICATOR_NAME = 'user_id';
