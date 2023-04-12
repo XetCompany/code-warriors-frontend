@@ -32,13 +32,7 @@ const MyRequest = ({...data}) => {
                 method: 'DELETE', headers: {
                     Authorization: 'Bearer ' + UserStore.accessToken,
                 },
-            }).then((response) => {
-                if (response.status === 204) {
-                    alert('Заказ успешно удален');
-                } else {
-                    alert('Ошибка при удалении заказа');
-                }
-            });
+            }).then(() => {});
         }}>Удалить</Button>)}
         <Link to={"/my-request/edit/" + data.id + "/"}>Редактировать</Link>
     </div>)

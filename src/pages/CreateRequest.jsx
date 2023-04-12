@@ -13,7 +13,6 @@ const onFinish = (navigate) => {
         navigate("/my-requests")
         RequestStore.updateRequests();
         console.log('Success create request:', r);
-        alert('Вы успешно создали заявку!');
     });
 }
 
@@ -37,7 +36,7 @@ const CreateRequest = () => {
     FormApi.setForm(form);
 
     if (!RequestStore.isShowCategories) {
-        return <div style={{display: 'flex', justifyContent: 'center'}}>Загрузка...</div>;
+        return <div style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: 400}}>Загрузка...</div>;
     }
 
     const route = BACKEND_URLS.PHOTO;
@@ -50,14 +49,13 @@ const CreateRequest = () => {
     return (
     <div className="create-request">
         <div className="request-card">
-            <h1>Создание заявки</h1>
-            <Card>
+            <h1>Создание заказа</h1>
                 <Form
                     name="basic"
                     labelCol={{
                         span: 8,
                     }}
-                    style={{width: 1200}}
+                    style={{width: 600}}
                     initialValues={{
                         remember: true,
                     }}
@@ -181,7 +179,6 @@ const CreateRequest = () => {
                         </Button>
                     </Form.Item>
                 </Form>
-            </Card>
         </div>
     </div>)
 }

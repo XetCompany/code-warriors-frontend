@@ -7,13 +7,11 @@ import { NavLink } from 'react-router-dom';
 const onFinish = (navigate) => {
     FormApi.login().then(r => {
         console.log('Success login:', r);
-        alert('Вы успешно вошли!');
         navigate('/');
     });
 };
 const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
-    alert('Ошибка при входе!');
 };
 const App = () => {
     const [form] = Form.useForm();

@@ -33,11 +33,11 @@ const Requests = () => {
     }, [])
 
     if (!RequestStore.isShowData) {
-        return <div>Загрузка...</div>;
+        return <div style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: 400}}>Загрузка...</div>;
     }
 
     if (!UserStore.userIsLoaded) {
-        return <div>Загрузка...</div>;
+        return <div style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: 400}}>Загрузка...</div>;
     }
 
     const requests = RequestStore.data.filter(

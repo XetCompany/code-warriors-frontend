@@ -12,7 +12,6 @@ const onFinish = (navigate) => {
     UserApi.updateUserInfo().then(() => {
         UserStore.updateUser();
         navigate('/personal-account');
-        alert('Вы успешно обновили профиль!');
     });
 }
 
@@ -39,7 +38,7 @@ const PersonalAccountEdit = () => {
     }, [])
 
     if (!UserStore.user) {
-        return <div style={{display: 'flex', justifyContent: 'center'}}>Нет данных</div>
+        return <div style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: 400}}>Нет данных</div>
     }
 
     form.setFieldsValue({

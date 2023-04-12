@@ -38,8 +38,7 @@
   justify-content: center;
   margin-top: 20px;
   flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px; 
-  border-radius: 25px 25px 0 0;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
   background-color: #fff;
   align-items: center;
 }
@@ -68,7 +67,6 @@
   border-bottom: 1px solid rgb(8, 124, 232); 
   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px; 
   position: sticky;
-  border-radius: 25px 25px 0 0;
   background-color: #fff;
 }
 
@@ -85,7 +83,6 @@
 
 .my-acc {
   margin-top: 20px;
-  border-radius: 25px 25px 0 0;
   background-color: #fff;
 }
 
@@ -119,7 +116,6 @@
   margin-top: 20px;
   flex-direction: column;
   align-items: center;
-  border-radius: 25px 25px 0 0;
   background-color: #fff;
 }
 
@@ -222,7 +218,6 @@
   flex-direction: column;
   align-items: center;
   background-color: #fff;
-  border-radius: 25px 25px 0 0;
 }
 
 .rating h1 {
@@ -246,7 +241,6 @@
 
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
-html{height:100%}
 body{line-height:1}
 ol,ul{list-style:none}
 blockquote,q{quotes:none}
@@ -285,7 +279,7 @@ table{border-collapse:collapse;border-spacing:0}
 .section_search {
     background: url("./img/Union.png") no-repeat;
     background-size: 1095px 550px;
-    height: 100%;
+    height: 88%;
     margin-bottom: 30px;
     margin-left: 60px;
     background-repeat: no-repeat;

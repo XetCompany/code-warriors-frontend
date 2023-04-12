@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
-import { Alert, Space, Spin } from 'antd';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import NavBar from "./pages/NavBar";
 import PersonalAccount from "./pages/PersonalAccount";

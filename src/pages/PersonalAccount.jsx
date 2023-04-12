@@ -16,8 +16,8 @@ const PersonalAccount = () => {
 
     if (!UserStore.user) {
         return (<div>
-            <h1 style={{display: 'flex', justifyContent: 'center'}}>Личный кабинет</h1>
-            <div style={{display: 'flex', justifyContent: 'center'}}>Вы не авторизованы</div>
+            <h1 style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: 400}}>Личный кабинет</h1>
+            <div style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: 400}}>Вы не авторизованы</div>
         </div>);
     }
 

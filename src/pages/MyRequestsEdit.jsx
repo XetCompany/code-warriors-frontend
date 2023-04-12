@@ -14,7 +14,6 @@ const onFinish = (navigate) => {
     RequestApi.updateRequest().then(() => {
         requestStore.updateData();
         navigate('/my-requests');
-        alert('Вы успешно обновили заявку!');
     });
 }
 
@@ -49,11 +48,11 @@ const MyRequestsEdit = () => {
     const navigate = useNavigate();
 
     if (!RequestStore.isShowCategories) {
-        return <div style={{display: 'flex', justifyContent: 'center'}}>Загрузка...</div>;
+        return <div style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: 400}}>Загрузка...</div>;
     }
 
     if (!RequestPageStore.isShowData) {
-        return <div style={{display: 'flex', justifyContent: 'center'}}>Загрузка...</div>;
+        return <div style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: 400}}>Загрузка...</div>;
     }
 
     console.log(RequestPageStore.data)

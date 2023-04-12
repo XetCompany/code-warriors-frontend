@@ -16,7 +16,7 @@ const Rating = () => {
   }, []);
 
   if (!ratingStore.isShowData) {
-    return <div style={{display: 'flex', justifyContent: 'center'}}>Загрузка...</div>;
+    return <div style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: 400}}>Загрузка...</div>;
   }
 
   return (
