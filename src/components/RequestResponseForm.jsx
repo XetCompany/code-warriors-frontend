@@ -11,7 +11,11 @@ const onFinish = (request_id, navigate) => {
         id: request_id,
         data: RequestPageStore.data,
     }).then((response) => {
-        // alert('Ответ успешно добавлен');
+        RequestPageApi.getRequest(request_id).then(
+            (response) => {
+                RequestPageStore.setData(response.data);
+            }
+        )
     });
 }
 

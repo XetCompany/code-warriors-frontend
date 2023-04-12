@@ -26,7 +26,6 @@ const RequestPage = () => {
     useEffect(() => {
         RequestPageApi.getRequest(id).then(
             (response) => {
-                console.log(response);
                 RequestPageStore.setData(response.data);
                 RequestPageStore.setIsShowData(true);
             }

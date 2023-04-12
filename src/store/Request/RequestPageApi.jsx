@@ -33,6 +33,18 @@ class RequestPageApi extends ApiClass {
             }
         })
     }
+
+    async completeRequest(request_id) {
+        const route = 'info/request/' + request_id + '/complete/';
+        const url = new Url({route}).defaultUrl;
+
+        await UserStore.updateAccessToken();
+        return await this.sendPost(url, {}, {
+            headers: {
+                Authorization: `Bearer ${UserStore.accessToken}`
+            }
+        });
+    }
 }
 
 const requestPageApi = new RequestPageApi();

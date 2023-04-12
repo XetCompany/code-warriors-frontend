@@ -21,7 +21,7 @@ const MyRequests = () => {
         return <div>Загрузка...</div>;
     }
 
-    const requests = RequestStore.data.filter((request) => {
+    const requests = RequestStore.myRequests.filter((request) => {
         return request.creator.id === UserStore.user.id;
     });
 

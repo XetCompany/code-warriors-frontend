@@ -30,6 +30,7 @@ class RequestApi extends ApiClass {
             }
         }, false);
     }
+
     async getCategories() {
         const route = BACKEND_URLS.CATEGORIES;
         const url = new Url({route}).defaultUrl;

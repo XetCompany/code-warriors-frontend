@@ -1,4 +1,5 @@
 import {makeAutoObservable} from "mobx";
+import RequestApi from "./RequestApi";
 
 class RequestStore {
     constructor() {
@@ -14,6 +15,15 @@ class RequestStore {
 
     setIsShowMyRequests(isShowMyRequests) {
         this.isShowMyRequests = isShowMyRequests;
+    }
+
+    updateRequests() {
+        RequestApi.getRequests().then(
+            (response) => {
+                this.setData(response.data);
+                this.setIsShowData(true);
+            }
+        );
     }
 
     setMyRequests(myRequests) {
