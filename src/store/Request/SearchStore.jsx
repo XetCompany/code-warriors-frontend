@@ -1,4 +1,6 @@
 import {makeAutoObservable} from "mobx";
+import RequestStore from "./RequestStore";
+import SearchApi from "./SearchApi";
 
 class SearchStore {
     constructor(props) {
@@ -18,6 +20,18 @@ class SearchStore {
 
     setDataSearch(dataSearch) {
         this.dataSearch = dataSearch;
+    }
+
+    search() {
+        let categories = [];
+        RequestStore.chosenCategories.forEach((category) => {
+            categories.push(category.id);
+        });
+        SearchApi.search(categories).then((response) => {
+            this.setDataSearch(response.data.users);
+            this.setIsDataSearchShow(true);
+            this.setIsSearch(false);
+        });
     }
 
 }

@@ -10,6 +10,7 @@ export const BACKEND_URLS = {
     REQUESTS: 'info/requests/',
     REQUESTS_UPDATE: 'info/request/update/',
     REQUESTS_CREATE: 'info/request/create/',
+    SEARCH_PERFORMERS: 'info/user_by_categories/',
     USER_INFO: 'info/user/',
     USER_DETAILS: 'info/user/',
     USER_COMMENTS: 'info/reviews/list/',

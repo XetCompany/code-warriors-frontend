@@ -5,6 +5,7 @@ import RequestApi from "../store/Request/RequestApi";
 import RequestStore from "../store/Request/RequestStore";
 import {Button, Checkbox, Form} from "antd";
 import SearchStore from "../store/Request/SearchStore";
+import {Link} from "react-router-dom";
 
 const Performers = () => {
     useEffect(() => {
@@ -41,16 +42,16 @@ const Performers = () => {
                 >{category.name}</Checkbox>
             })}
         </Form.Item>) : <div>Загрузка...</div>}
-        <Button type="primary" htmlType="submit">Поиск</Button>
+        <Button type="primary" htmlType="submit" onClick={() => {
+            SearchStore.search();
+        }}>Поиск</Button>
         <div>
             {SearchStore.isDataSearchShow ? (<>
                 {SearchStore.dataSearch.map((user) => {
                     return <div>
-                        <div>{user.username}</div>
-                        <div>{user.fullname}</div>
-                        <div>{user.description}</div>
-                        <div>{user.phone}</div>
-                        <div>{user.email}</div>
+                        <div><Link to={'/user/' + user.id}>{user.username} {
+                            user.is_buy_update && "+" // типо подсвечивается желтым
+                        }</Link></div>
                     </div>
                 })}
             </>) : SearchStore.isSearch && <div>Загрузка...</div>}
