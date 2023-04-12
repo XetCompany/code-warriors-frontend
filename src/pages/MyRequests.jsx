@@ -21,6 +21,10 @@ const MyRequests = () => {
         return <div>Загрузка...</div>;
     }
 
+    if (!RequestStore.data) {
+        return <h1 style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: 400}}>Нет заказов</h1>;
+    }
+
     const requests = RequestStore.myRequests.filter((request) => {
         return request.creator.id === UserStore.user.id;
     });

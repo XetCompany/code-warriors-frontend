@@ -1,17 +1,8 @@
-/* .load {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.app {
-  text-align: center;
-} */
-
 .header {
   background-color: rgb(46, 131, 233); 
   margin-top: -16px; 
-  width: 100%; 
+  width: 100%;
+  font-family: 'Ubuntu', sans-serif;
   height: 77px; 
   border-bottom: 1px solid rgb(8, 124, 232); 
   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px; 
@@ -47,6 +38,7 @@
 
 .requests h1 {
   font-size: 30px;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   color: #000;
 }
@@ -63,12 +55,23 @@
   margin-top: 20px;
   flex-direction: column;
   align-items: center;
+  border-bottom: 1px solid rgb(8, 124, 232); 
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px; 
+  position: sticky;
+  border-radius: 25px 25px 0 0;
+  z-index: 99999;
+  background-color: #fff;
 }
 
 .create-request h1 {
   font-size: 30px;
   font-weight: 400;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-family: 'Ubuntu', sans-serif;
   color: #000;
+  display: flex;
+  justify-content: center;
 }
 
 .request-page {
@@ -81,6 +84,7 @@
 
 .request-page h1 {
   font-size: 30px;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   color: #000;
 }
@@ -95,6 +99,7 @@
 
 .my-requests h1 {
   font-size: 30px;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   color: #000;
 }
@@ -116,6 +121,7 @@
 }
 
 .account h1 {
+  font-family: 'Ubuntu', sans-serif;
   font-size: 30px;
   font-weight: 400;
   color: #000;
@@ -130,6 +136,7 @@
 }
 
 .register h1 {
+  font-family: 'Ubuntu', sans-serif;
   font-size: 30px;
   font-weight: 400;
   color: #000;
@@ -145,6 +152,7 @@
 
 .login h1 {
   font-size: 30px;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   color: #000;
 }
@@ -159,6 +167,7 @@
 
 .reset-password h1 {
   font-size: 30px;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   color: #000;
 }
@@ -169,6 +178,13 @@
   margin-top: 20px;
   flex-direction: column;
   align-items: center;
+}
+
+.rating h1 {
+  font-size: 30px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  color: #000;
 }
 
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}

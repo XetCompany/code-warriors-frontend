@@ -6,11 +6,13 @@ import {NavLink, useNavigate} from 'react-router-dom';
 const onFinish = (navigate) => {
     FormApi.register().then(r => {
         console.log('Success:', r);
+        alert('Вы успешно зарегистрировались!');
         navigate('/login');
     });
 };
 const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
+    alert('Ошибка при регистрации!');
 };
 
 const Register = () => {

@@ -9,6 +9,7 @@ const onFinish = (navigate) => {
     UserApi.updateUserInfo().then(() => {
         UserStore.updateUser();
         navigate('/personal-account');
+        alert('Вы успешно обновили профиль!');
     });
 }
 

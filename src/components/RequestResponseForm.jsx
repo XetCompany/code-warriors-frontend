@@ -14,6 +14,7 @@ const onFinish = (request_id, navigate) => {
         RequestPageApi.getRequest(request_id).then(
             (response) => {
                 RequestPageStore.setData(response.data);
+                alert("Отклик успешно отправлен");
             }
         )
     });

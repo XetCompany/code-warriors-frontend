@@ -13,6 +13,7 @@ const onFinish = (navigate) => {
         navigate("/my-requests")
         RequestStore.updateRequests();
         console.log('Success create request:', r);
+        alert('Вы успешно создали заявку!');
     });
 }
 
@@ -48,8 +49,8 @@ const CreateRequest = () => {
 
     return (
     <div className="create-request">
-        <h1>Создание заявки</h1>
-        <Card>
+        <div className="request-card">
+            <h1>Создание заявки</h1>
             <Form
                 name="basic"
                 labelCol={{
@@ -58,7 +59,7 @@ const CreateRequest = () => {
                 wrapperCol={{
                     span: 16,
                 }}
-                style={{width: 600}}
+                style={{width: 1200}}
                 initialValues={{
                     remember: true,
                 }}
@@ -182,7 +183,7 @@ const CreateRequest = () => {
                     </Button>
                 </Form.Item>
             </Form>
-        </Card>
+        </div>
     </div>)
 }
 

@@ -16,7 +16,7 @@ const NavBar = () => {
     <header className="header">
         <nav className="navbar">
             <ul className="navbarul">
-                <li><Link to="/">Home</Link></li>
+                <li><Link to="/">Главная</Link></li>
                 {userStore.user !== null ?
                 <>
                     <li><Link to={"/requests"}>Заказы</Link></li>

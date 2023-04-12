@@ -14,6 +14,7 @@ const onFinish = (navigate) => {
     RequestApi.updateRequest().then(() => {
         requestStore.updateData();
         navigate('/my-requests');
+        alert('Вы успешно обновили заявку!');
     });
 }
 
