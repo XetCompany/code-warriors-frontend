@@ -18,6 +18,7 @@ import Rating from './pages/Rating';
 import { observer } from 'mobx-react';
 import Performers from "./pages/Performers";
 import User from "./pages/User";
+import Chats from "./pages/Chats";
 
 function App() {
   // const [load, setLoad] = useState(false);
@@ -49,6 +50,7 @@ function App() {
           <Route path="/rating" element={<Rating />}/>
           <Route path="/performers" element={<Performers />}/>
           <Route path="/user/:id" element={<User />}/>
+          <Route path="/chats" element={<Chats />}/>
         </Routes>
       </BrowserRouter>
       {/* </div>

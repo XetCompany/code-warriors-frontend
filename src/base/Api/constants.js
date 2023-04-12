@@ -9,6 +9,7 @@ export const BACKEND_URLS = {
     INFO: 'info/',
     REQUESTS: 'info/requests/',
     REQUESTS_UPDATE: 'info/request/update/',
+    CHATS: 'info/messenger/chats/',
     REQUESTS_CREATE: 'info/request/create/',
     SEARCH_PERFORMERS: 'info/user_by_categories/',
     USER_INFO: 'info/user/',
