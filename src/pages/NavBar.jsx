@@ -20,14 +20,14 @@ const NavBar = () => {
                 {userStore.user !== null ? <>
                     <li><Link to={"/requests"}>Найти задания</Link></li>
                     {userStore.role.includes('customer') ? <>
-                        <li><Link to={"/my-requests"}>Мои задания</Link></li>   
+                        <li><Link to={"/request/create"}>Создать задание</Link></li>
+                        <li><Link to={"/my-requests"}>Мои задания</Link></li>
                         <li><Link to={"/performers"}>Исполнители</Link></li>
                     </> : null}
                     <li><Link to="/personal-account">Мой аккаунт{userStore.notifications.length > 0 ? <>({userStore.notifications.length})</> : null}</Link></li>
                     <li><Link to="/rating">Рейтинг</Link></li>
                     <li><Link to={"/"} onClick={logout}>Выход</Link></li>
                 </> : <>
-                    <li><Link to={"/request/create"}>Создать задание</Link></li>
                     <li><Link to="/register">Регистрация</Link></li>
                     <li><Link to="/login">Вход</Link></li>
                 </>}
