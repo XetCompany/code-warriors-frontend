@@ -22,11 +22,11 @@ const PersonalAccount = () => {
 
     return (<div style={{display: 'flex', alignContent: 'center', flexDirection: 'row'}}>
         <div style={{width: '50%'}}>
-            <h1 style={{display: 'flex', justifyContent: 'center'}}>Личный кабинет</h1>
+            <h1 style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: '400'}}>Личный кабинет</h1>
             <UserCard isMyProfile={true} user={UserStore.user} />
         </div>
         <div style={{width: '50%'}}>
-            <h2 style={{display: 'flex', justifyContent: 'center'}}>Уведомления</h2>
+            <h1 style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: '400'}}>Уведомления</h1>
             <Card style={{maxWidth: '50vw'}}>
                 <Button onClick={() => UserStore.readAllNotifications()}>
                     Прочитать все

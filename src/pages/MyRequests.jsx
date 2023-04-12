@@ -27,7 +27,7 @@ const MyRequests = () => {
 
     return (<div className="my-requests">
         <h1>Мои заказы</h1>
-        <Card>
+        <Card style={{width: 600}}>
             {requests.map((request, index) => {
                 return <RequestCard key={index} {...request} isMyCard={true}/>;
             })}

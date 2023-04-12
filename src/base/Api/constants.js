@@ -19,7 +19,7 @@ export const BACKEND_URLS = {
 };
 Object.freeze(BACKEND_URLS);
 
-export const SERVER_URL = 'http://127.0.0.1:8000/api/';
+export const SERVER_URL = 'http://6.tcp.eu.ngrok.io:13444/api/';
 
 export const BACKEND_SEARCH_PATTERNS = {
     PRICE: 'price', CATEGORY: 'category', SUBCATEGORY: 'subcategory',

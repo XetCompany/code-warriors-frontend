@@ -1,3 +1,13 @@
+/* .load {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  text-align: center;
+} */
+
 .header {
   background-color: rgb(46, 131, 233); 
   margin-top: -16px; 
@@ -6,6 +16,7 @@
   border-bottom: 1px solid rgb(8, 124, 232); 
   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px; 
   position: sticky;
+  border-radius: 25px 25px 0 0;
   z-index: 99999;
 }
 
@@ -82,6 +93,12 @@
   align-items: center;
 }
 
+.my-requests h1 {
+  font-size: 30px;
+  font-weight: 400;
+  color: #000;
+}
+
 .my-request-edit {
   display: flex;
   justify-content: center;
@@ -144,4 +161,158 @@
   font-size: 30px;
   font-weight: 400;
   color: #000;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+html{height:100%}
+body{line-height:1}
+ol,ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
+table{border-collapse:collapse;border-spacing:0}
+* body {
+    background-color: #E1D7D7;
+    padding: 30px 70px 0 70px;
+
+}
+.create_image {
+    margin-top: 34px;
+    width: 194px;
+    height: 73px;
+}
+.create_text {
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 25px;
+    margin-left: 50px;
+}
+.authticate_text {
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 25px;
+    margin-left: 50px;
+}
+.section {
+    background: url("./img/test.png");
+    background-repeat: no-repeat;
+    padding: 60px 0 0 0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0 0 30px 30px;
+    height: 1200px;
+}
+.section_search {
+    background: url("./img/Union.png") no-repeat;
+    height: 652px;
+    margin-bottom: 30px;
+    margin-left: 60px;
+    background-repeat: no-repeat;
+    padding: 140px 0 0 103px ;
+
+}
+.search_h {
+    font-size: 64px;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.search_input {
+    position: absolute;
+    width: 700px;
+    height: 64px;
+    left: 350px;
+    top: 430px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 3px #0d5aa1;
+    border-radius: 15px;
+}
+.search_input_img {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+}
+.search_input_button {
+    position: absolute;
+    width: 120px;
+    height: 50px;
+    top: 7px;
+    left: 570px;
+    background: #087CE8;
+    border-radius: 15px;
+    border: none;
+    color: white;
+}
+.search_input_text {
+    position: absolute;
+    width: 480px;
+    height: 50px;
+    left: 55px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 26px;
+    color: rgb(169, 169, 169);
+    border: none;
+    outline:none;
+    padding: 5px 15px 5px 15px;
+}
+.input_form{
+    display: flex;
+    flex-direction: column;
+}
+.search_button {
+    margin-top: 100px;
+}
+.button_line_1 {
+    position: absolute;
+    top: 540px;
+    left: 290px;
+    display: flex;
+    flex-direction: row;
+    width:  850px;
+    justify-content:space-around;
+}
+.button_but {
+    color: white;
+    background-color: #087CE8;
+    border: none;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.button_line_2 {
+    position: absolute;
+    top: 590px;
+    left: 485px;
+    display: flex;
+    flex-direction: row;
+    width:  500px;
+    justify-content:space-around;
+}
+.section_text {
+    position: absolute;
+    top: 780px;
+    left: 270px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    color: #087CE8;
+}
+.section_img_1 {
+    position: absolute;
+    top: 900px;
+    right: 100px;
+}
+.section_img_2 {
+    position: absolute;
+    top: 1090px;
+    left: 120px;
 }
