@@ -5,6 +5,8 @@ import RequestResponseForm from "./RequestResponseForm";
 import {observer} from "mobx-react";
 import {SERVER_URL} from "../base/Api/constants";
 import RequestPageApi from "../store/Request/RequestPageApi";
+import RequestPageStore from "../store/Request/RequestPageStore";
+import RequestStore from "../store/Request/RequestStore";
 
 
 const PerformerActions = ({data, isResponsed, myResponse, isDetailView, navigate, isMyCard = false}) => {
@@ -31,9 +33,13 @@ const CustomerResponses = ({responses, request}) => {
                 <Button type="primary" onClick={() => {
                     RequestPageApi.acceptResponseForRequest(response.user.id, request.id).then((response) => {
                         if (response.status === 201) {
-                            alert('Отклик принят');
+                            RequestPageApi.getRequest(request.id).then(
+                                (response) => {
+                                    RequestPageStore.setData(response.data);
+                                    RequestPageStore.setIsShowData(true);
+                                }
+                            )
                         } else {
-                            alert('Ошибка при принятии отклика');
                         }
                     });
                 }} disabled={response.executor}>Принять</Button>
@@ -53,15 +59,29 @@ const CustomerActions = ({data, isResponsed, myResponse, isDetailView, navigate,
                     },
                 }).then((response) => {
                     if (response.status === 204) {
-                        alert('Заказ успешно удален');
+                        RequestStore.updateRequests();
                     } else {
-                        alert('Ошибка при удалении заказа');
                     }
                 });
             }}>Удалить</Button>
-            <Link to={"/my-request/edit/" + data.id + "/"}>Редактировать</Link>
-            {isDetailView ? (<> <hr/> <CustomerResponses responses={data.responses} request={data}/> </>) : null}
-            {/*{isDetailView ? (<> <hr/> <div>Отклики: {data.responses.length}</div> </>) : null}*/}
+            {data.is_active && <Link to={"/my-request/edit/" + data.id + "/"}>Редактировать</Link>}
+
+            <hr/>
+            {data.is_active &&
+                <Button type="primary" onClick={() => {
+                    RequestPageApi.completeRequest(data.id).then((response) => {
+                        if (response.status === 201) {
+                            RequestPageApi.getRequest(data.id).then(
+                                (response) => {
+                                    RequestPageStore.setData(response.data);
+                                    RequestPageStore.setIsShowData(true);
+                                }
+                            )
+                        } else {
+                        }
+                    });
+                }} disabled={data.executor.username === null}>Завершить</Button>}
+            {isDetailView && data.executor === null ? (<> <hr/> <CustomerResponses responses={data.responses} request={data}/> </>) : null}
         </>)}
     </>;
 }

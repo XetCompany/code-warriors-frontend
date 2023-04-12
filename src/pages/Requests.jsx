@@ -40,11 +40,28 @@ const Requests = () => {
         return <div>Загрузка...</div>;
     }
 
+    const requests = RequestStore.data.filter(
+        (request) => {
+            const isCustomer = UserStore.role.includes('customer');
+            const isPerformer = UserStore.role.includes('performer');
+
+            if (isCustomer) {
+                return true;
+            }
+
+            if (isPerformer) {
+                return request.executor.id === null || request.executor.id === UserStore.user.id;
+            }
+
+            return true;
+        }
+    )
+
     return (<div className="requests">
         <h1>Заказы</h1>
         <Card>
             <div>
-                {RequestStore.data.map((request, index) => {
+                {requests.map((request, index) => {
                     return <RequestCard key={index} {...request} isMyCard={isMyCardCalculate(request)}/>;
                 })}
             </div>

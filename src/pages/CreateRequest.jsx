@@ -6,9 +6,12 @@ import RequestStore from "../store/Request/RequestStore";
 import {BACKEND_URLS} from "../base/Api/constants";
 import Url from "../base/Api/Url";
 import {observer} from "mobx-react";
+import {useNavigate} from "react-router-dom";
 
-const onFinish = () => {
+const onFinish = (navigate) => {
     FormApi.createRequest().then(r => {
+        navigate("/my-requests")
+        RequestStore.updateRequests();
         console.log('Success create request:', r);
     });
 }
@@ -26,6 +29,8 @@ const CreateRequest = () => {
             RequestStore.setIsShowCategories(true);
         });
     }, [])
+
+    const navigate = useNavigate();
 
     const [form] = Form.useForm();
     FormApi.setForm(form);
@@ -57,7 +62,7 @@ const CreateRequest = () => {
                 initialValues={{
                     remember: true,
                 }}
-                onFinish={onFinish}
+                onFinish={() => onFinish(navigate)}
                 onFinishFailed={onFinishFailed}
                 autoComplete="off"
                 form={form}
