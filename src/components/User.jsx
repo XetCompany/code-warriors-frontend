@@ -11,6 +11,8 @@ const User = ({username, email, groups, ...data}) => {
         }
     });
 
+    console.log(data);
+
     return (<div>
         <h2>Информация о пользователе</h2>
         <div>Имя пользователя: {username}</div>
@@ -21,6 +23,20 @@ const User = ({username, email, groups, ...data}) => {
         <div>Роль: {groups.map((group, index) => {
             return (<span key={index}>{transformGroups[group]}{index !== groups.length - 1 ? ', ' : ''}</span>);
         })}</div>
+        <div>
+            {
+                groups.includes('performer') && (
+                    <div>
+                        <h3>Выбранные категории: {data.chosen_categories && 'нет'}</h3>
+                        {
+                            data.chosen_categories.map((category, index) => {
+                                return (<div key={index}>{category.name}</div>);
+                            })
+                        }
+                    </div>
+                )
+            }
+        </div>
     </div>);
 }
 

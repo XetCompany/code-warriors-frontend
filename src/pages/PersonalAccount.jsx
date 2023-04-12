@@ -4,6 +4,7 @@ import {useEffect} from "react";
 import UserApi from "../store/User/UserApi";
 import {Button, Card} from "antd";
 import UserCard from "../components/UserCard";
+import Notification from "../components/Notification";
 
 const PersonalAccount = () => {
     useEffect(() => {
@@ -32,7 +33,9 @@ const PersonalAccount = () => {
                     Прочитать все
                 </Button>
                 {UserStore.isShowNotification && UserStore.notifications.map((notification, index) => {
-                    return <div key={index}>{notification.message}</div>;
+                    return <div key={index}>
+                        <Notification notification={notification} />
+                    </div>;
                 })}
             </Card>
         </div>

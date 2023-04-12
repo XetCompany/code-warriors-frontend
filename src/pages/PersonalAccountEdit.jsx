@@ -1,9 +1,12 @@
-import {Button, Card, Form, Input} from "antd";
+import {Button, Card, Checkbox, Form, Input} from "antd";
 import FormApi from "../store/Form/FormApi";
-import React from "react";
+import React, {useEffect} from "react";
 import UserStore from "../store/User/UserStore";
 import UserApi from "../store/User/UserApi";
 import {useNavigate} from "react-router-dom";
+import RequestApi from "../store/Request/RequestApi";
+import RequestStore from "../store/Request/RequestStore";
+import {observer} from "mobx-react";
 
 const onFinish = (navigate) => {
     UserApi.updateUserInfo().then(() => {
@@ -22,6 +25,18 @@ const PersonalAccountEdit = () => {
     FormApi.setForm(form);
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        UserStore.asyncUpdateUser().then(() => {
+            if (UserStore.role.includes('performer')) {
+                RequestApi.getCategories().then((response) => {
+                    const categories = response.data.data.categories;
+                    RequestStore.setCategories(categories);
+                    RequestStore.setIsShowCategories(true);
+                });
+            }
+        })
+    }, [])
 
     if (!UserStore.user) {
         return <div style={{display: 'flex', justifyContent: 'center'}}>Нет данных</div>
@@ -89,6 +104,9 @@ const PersonalAccountEdit = () => {
                 >
                     <Input/>
                 </Form.Item>
+                {UserStore.role.includes('performer') && (RequestStore.isShowCategories ? (<Form.Item label="Категории" name="chosen_categories"><Checkbox.Group>
+                    {RequestStore.categories.map((category) => {return <Checkbox value={category.id}>{category.name}</Checkbox>})}
+                </Checkbox.Group></Form.Item>) : <div>Загрузка...</div>)}
                 <Form.Item
                     wrapperCol={{
                         offset: 8, span: 16,
@@ -103,4 +121,4 @@ const PersonalAccountEdit = () => {
     </div>);
 }
 
-export default PersonalAccountEdit;
+export default observer(PersonalAccountEdit);

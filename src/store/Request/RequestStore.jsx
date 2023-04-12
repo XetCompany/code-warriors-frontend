@@ -21,6 +21,7 @@ class RequestStore {
         RequestApi.getRequests().then(
             (response) => {
                 this.setData(response.data);
+                this.setMyRequests(response.data);
                 this.setIsShowData(true);
             }
         );

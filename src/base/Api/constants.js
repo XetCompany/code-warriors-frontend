@@ -13,6 +13,7 @@ export const BACKEND_URLS = {
     USER_INFO: 'info/user/',
     PHOTO: 'info/image/',
     RATING: 'info/rating/',
+    REVIEW_CREATE: 'info/reviews/create/',
     VIDEO: 'info/video/',
     NOTIFICATIONS: 'info/notifications/',
     NOTIFICATIONS_READ_ALL: 'info/notifications/read_all/',

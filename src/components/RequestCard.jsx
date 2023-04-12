@@ -81,7 +81,7 @@ const CustomerActions = ({data, isResponsed, myResponse, isDetailView, navigate,
                         }
                     });
                 }} disabled={data.executor.username === null}>Завершить</Button>}
-            {isDetailView && data.executor === null ? (<> <hr/> <CustomerResponses responses={data.responses} request={data}/> </>) : null}
+            {isDetailView && data.executor.username === null ? (<> <hr/> <CustomerResponses responses={data.responses} request={data}/> </>) : null}
         </>)}
     </>;
 }
