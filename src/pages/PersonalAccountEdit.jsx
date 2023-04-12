@@ -24,7 +24,7 @@ const PersonalAccountEdit = () => {
     const navigate = useNavigate();
 
     if (!UserStore.user) {
-        return <div>Нет данных</div>
+        return <div style={{display: 'flex', justifyContent: 'center'}}>Нет данных</div>
     }
 
     form.setFieldsValue({

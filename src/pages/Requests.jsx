@@ -59,13 +59,13 @@ const Requests = () => {
 
     return (<div className="requests">
         <h1>Заказы</h1>
-        <Card>
+        <>
             <div>
                 {requests.map((request, index) => {
                     return <RequestCard key={index} {...request} isMyCard={isMyCardCalculate(request)}/>;
                 })}
             </div>
-        </Card>
+        </>
     </div>);
 }
 

@@ -22,7 +22,6 @@ const ResetPassword = () => {
     return (
         <div className='reset-password'>
             <h1>Сброс пароля</h1>
-            <Card>
                 <Form
                     name="basic"
                     labelCol={{
@@ -68,7 +67,6 @@ const ResetPassword = () => {
                         </Button>
                     </Form.Item>
                 </Form>
-            </Card>
     </div>)
 };
 

@@ -6,13 +6,11 @@ import {NavLink, useNavigate} from 'react-router-dom';
 const onFinish = (navigate) => {
     FormApi.register().then(r => {
         console.log('Success:', r);
-        alert('Вы успешно зарегистрировались!');
         navigate('/login');
     });
 };
 const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
-    alert('Ошибка при регистрации!');
 };
 
 const Register = () => {
@@ -20,8 +18,7 @@ const Register = () => {
     FormApi.setForm(form);
     const navigate = useNavigate();
     return (<div className='register'>
-        <h1>Регистрация</h1>
-        <Card>
+            <h1>Регистрация</h1>
             <Form
                 name="basic"
                 labelCol={{
@@ -92,7 +89,6 @@ const Register = () => {
                     </p>
                 </Form.Item>
             </Form>
-        </Card>
     </div>)
 };
 export default Register;

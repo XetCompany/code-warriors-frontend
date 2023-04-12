@@ -49,11 +49,11 @@ const MyRequestsEdit = () => {
     const navigate = useNavigate();
 
     if (!RequestStore.isShowCategories) {
-        return <div>Загрузка...</div>;
+        return <div style={{display: 'flex', justifyContent: 'center'}}>Загрузка...</div>;
     }
 
     if (!RequestPageStore.isShowData) {
-        return <div>Загрузка...</div>;
+        return <div style={{display: 'flex', justifyContent: 'center'}}>Загрузка...</div>;
     }
 
     console.log(RequestPageStore.data)

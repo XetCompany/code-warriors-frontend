@@ -33,11 +33,11 @@ const RequestPage = () => {
     }, [id])
 
     if (!RequestPageStore.isShowData) {
-        return (<div>Загрузка...</div>);
+        return (<div style={{display: 'flex', justifyContent: 'center'}}>Загрузка...</div>);
     }
 
     if (!UserStore.userIsLoaded) {
-        return <div>Загрузка...</div>;
+        return <div style={{display: 'flex', justifyContent: 'center'}}>Загрузка...</div>;
     }
 
     return (<div className="request-page">

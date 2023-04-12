@@ -15,12 +15,12 @@ const PersonalAccount = () => {
 
     if (!UserStore.user) {
         return (<div>
-            <h1>Личный кабинет</h1>
-            <div>Вы не авторизованы</div>
+            <h1 style={{display: 'flex', justifyContent: 'center'}}>Личный кабинет</h1>
+            <div style={{display: 'flex', justifyContent: 'center'}}>Вы не авторизованы</div>
         </div>);
     }
 
-    return (<div style={{display: 'flex', alignContent: 'center', flexDirection: 'row'}}>
+    return (<div className="my-acc" style={{display: 'flex', alignContent: 'center', flexDirection: 'row'}}>
         <div style={{width: '50%'}}>
             <h1 style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: '400'}}>Личный кабинет</h1>
             <UserCard isMyProfile={true} user={UserStore.user} />

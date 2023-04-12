@@ -1,5 +1,5 @@
 import UserStore from "../store/User/UserStore";
-import {Button} from "antd";
+import {Button, Card} from "antd";
 import {Link, useNavigate} from "react-router-dom";
 import RequestResponseForm from "./RequestResponseForm";
 import {observer} from "mobx-react";
@@ -90,7 +90,7 @@ const RequestCard = ({isMyCard = false, isDetailView = false, ...data}) => {
     const navigate = useNavigate();
 
     if (!UserStore.userIsLoaded) {
-        return (<div>Загрузка...</div>);
+        return (<div style={{display: 'flex', justifyContent: 'center'}}>Загрузка...</div>);
     }
 
     const isResponsed = data.responses.some((response) => {
@@ -103,7 +103,7 @@ const RequestCard = ({isMyCard = false, isDetailView = false, ...data}) => {
 
     const num_responses = data.responses.length;
 
-    return (<div>
+    return (<Card>
         {!isDetailView ? <Link to={'/request/' + data.id}><h2>{data.title}</h2></Link> : <h2>{data.title}</h2>}
         <div>Заказчик: {data.creator.username}</div>
         <div>Исполнитель: {data.executor.username}</div>
@@ -131,7 +131,7 @@ const RequestCard = ({isMyCard = false, isDetailView = false, ...data}) => {
         {UserStore.role && UserStore.role.includes('customer') && (
             <CustomerActions data={data} isResponsed={isResponsed} myResponse={myResponse}
                              isDetailView={isDetailView} navigate={navigate} isMyCard={isMyCard}/>)}
-    </div>);
+    </Card>);
 }
 
 export default observer(RequestCard);

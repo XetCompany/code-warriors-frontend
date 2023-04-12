@@ -31,11 +31,11 @@ const MyRequests = () => {
 
     return (<div className="my-requests">
         <h1>Мои заказы</h1>
-        <Card style={{width: 600}}>
+        <h5 style={{width: 600}}>
             {requests.map((request, index) => {
                 return <RequestCard key={index} {...request} isMyCard={true}/>;
             })}
-        </Card>
+        </h5>
     </div>);
 }
 

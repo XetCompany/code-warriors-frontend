@@ -16,20 +16,18 @@ const Rating = () => {
   }, []);
 
   if (!ratingStore.isShowData) {
-    return <div>Загрузка...</div>;
+    return <div style={{display: 'flex', justifyContent: 'center'}}>Загрузка...</div>;
   }
 
   return (
     <div className="rating">
       <h1>Рейтинг</h1>
-      <Card>
         {ratingStore.data.map((request) => {
-          return <>
+          return <Card className="rate">
             <div>Пользователь: {request.username}</div>
             <div>Рейтинг: {request.avg_rating}</div>
-          </>;
+          </Card>
         })}
-      </Card>
     </div>
   );
 };

@@ -21,7 +21,6 @@ const App = () => {
     const navigate = useNavigate();
     return (<div className='login'>
         <h1>Вход</h1>
-        <Card>
             <Form
                 name="basic"
                 labelCol={{
@@ -72,7 +71,6 @@ const App = () => {
                     <p>Нет аккаунта? <NavLink to="/register">Зарегистрироваться</NavLink> || <NavLink to="/request-password-reset">Забыли пароль?</NavLink></p>
                 </Form.Item>
             </Form>
-        </Card>
     </div>)
 };
 export default App;

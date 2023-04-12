@@ -17,7 +17,6 @@ const RequestResetPassword = () => {
     return (
     <div className='reset-password'>
         <h1>Запрос на сброс пароля</h1>
-        <Card>
             <Form
                 name="basic"
                 labelCol={{
@@ -56,7 +55,6 @@ const RequestResetPassword = () => {
                     </Button>
                 </Form.Item>
             </Form>
-            </Card>
     </div>)
 };
 
