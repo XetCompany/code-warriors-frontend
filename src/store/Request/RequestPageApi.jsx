@@ -10,6 +10,18 @@ class RequestPageApi extends ApiClass {
         return await this.sendGet(url)
     }
 
+    async acceptResponseForRequest(user_id, request_id) {
+        const route = 'info/request/' + request_id + '/accept_response/';
+        const url = new Url({route}).defaultUrl;
+
+        await UserStore.updateAccessToken();
+        return await this.sendPost(url, {user_id}, {
+            headers: {
+                Authorization: `Bearer ${UserStore.accessToken}`
+            }
+        })
+    }
+
     async addResponseToRequest({id, data}) {
         const route = 'info/request/' + id + '/add_response/';
         const url = new Url({route}).defaultUrl;

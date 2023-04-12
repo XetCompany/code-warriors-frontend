@@ -7,6 +7,10 @@ const NavBar = () => {
     const logout = () => {
         userStore.setUser(null);
         userStore.setIsAuth(false);
+        userStore.setRole([]);
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+        userStore.setUserIsLoaded(false);
     }
     return (
     <header className="header">
@@ -26,14 +30,14 @@ const NavBar = () => {
                     <li><Link to="/personal-account">Мой аккаунт</Link></li>
                     <li><Link to={"/"} onClick={logout}>Выход</Link></li>
                 </>
-                : 
+                :
                 <>
                     <li><Link to="/register">Регистрация</Link></li>
                     <li><Link to="/login">Вход</Link></li>
                 </>
                 }
-                
-                
+
+
             </ul>
         </nav>
     </header>)

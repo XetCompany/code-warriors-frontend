@@ -1,11 +1,10 @@
 import UserStore from "../store/User/UserStore";
 import {Button} from "antd";
 import {SERVER_URL} from "../base/Api/constants";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const MyRequest = ({...data}) => {
-  return (
-    <div>
+    return (<div>
         <h2>{data.title}</h2>
         <div>Заказчик: {data.creator.username}</div>
         <div>Исполнитель: {data.executor.username}</div>
@@ -27,25 +26,22 @@ const MyRequest = ({...data}) => {
         <div>Активен: {data.is_active ? 'Да' : 'Нет'}</div>
         <div>Создан: {data.created_at}</div>
         <div>Обновлен: {data.updated_at}</div>
-      {
-            UserStore.role && UserStore.role.includes('customer') && (<Button type="primary" onClick={() => {
-                const url = SERVER_URL + 'info/request/remove/' + data.id + '/';
-                fetch(url, {
-                    method: 'DELETE',
-                    headers: {
-                        Authorization: 'Bearer ' + UserStore.accessToken,
-                    },
-                }).then((response) => {
-                    if (response.status === 204) {
-                        alert('Заказ успешно удален');
-                    } else {
-                        alert('Ошибка при удалении заказа');
-                    }
-                });
-            }}>Удалить</Button>)}
-            <Link to={"/my-request/edit/"+data.id+"/"}>Редактировать</Link>
-    </div>
-  )
+        {UserStore.role && UserStore.role.includes('customer') && (<Button type="primary" onClick={() => {
+            const url = SERVER_URL + 'info/request/remove/' + data.id + '/';
+            fetch(url, {
+                method: 'DELETE', headers: {
+                    Authorization: 'Bearer ' + UserStore.accessToken,
+                },
+            }).then((response) => {
+                if (response.status === 204) {
+                    alert('Заказ успешно удален');
+                } else {
+                    alert('Ошибка при удалении заказа');
+                }
+            });
+        }}>Удалить</Button>)}
+        <Link to={"/my-request/edit/" + data.id + "/"}>Редактировать</Link>
+    </div>)
 }
 
 export default MyRequest;
