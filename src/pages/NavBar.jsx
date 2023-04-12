@@ -24,6 +24,7 @@ const NavBar = () => {
                     : null
                     }
                     <li><Link to="/personal-account">Мой аккаунт</Link></li>
+                    <li><Link to="/rating">Рейтинг</Link></li>
                     <li><Link to={"/"} onClick={logout}>Выход</Link></li>
                 </>
                 : 

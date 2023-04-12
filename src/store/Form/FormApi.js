@@ -92,6 +92,11 @@ class FormApi extends ApiClass {
                 return Promise.reject();
             });
     }
+    async getRating() {
+        const route = BACKEND_URLS.RATING;
+        const url = new Url({route}).defaultUrl;
+        return await this.sendGet(url, {}, {})
+    }
 }
 
 const formApi = new FormApi();

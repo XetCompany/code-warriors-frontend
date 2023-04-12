@@ -17,6 +17,7 @@ import MyRequestsEdit from './pages/MyRequestsEdit';
 import ResetPassword from './pages/ResetPassword';
 import RequestResetPassword from './pages/RequestResetPassword';
 import RequestPage from "./pages/RequestPage";
+import Rating from './pages/Rating';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<BrowserRouter>
@@ -34,6 +35,7 @@ root.render(<BrowserRouter>
         <Route path="/my-request/edit/:id" element={<MyRequestsEdit/>}/>
         <Route path="/reset-password/:token" element={<ResetPassword/>}/>
         <Route path="/request-password-reset" element={<RequestResetPassword/>}/>
+        <Route path="/rating" element={<Rating />}/>
     </Routes>
 </BrowserRouter>);
 
