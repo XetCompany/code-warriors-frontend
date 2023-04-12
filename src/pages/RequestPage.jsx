@@ -3,8 +3,22 @@ import {useParams} from "react-router-dom";
 import RequestPageApi from "../store/Request/RequestPageApi";
 import {useEffect} from "react";
 import RequestPageStore from "../store/Request/RequestPageStore";
-import RequestView from "../components/Request";
 import { Card } from "antd";
+import RequestCard from "../components/RequestCard";
+import UserStore from "../store/User/UserStore";
+
+const isMyCardCalculate = (request) => {
+    const isCustomer = UserStore.role.includes('customer');
+    const isPerformer = UserStore.role.includes('performer');
+
+    if (isCustomer) {
+        return request.creator.id === UserStore.user.id;
+    }
+
+    if (isPerformer) {
+        return request.executor.id === UserStore.user.id;
+    }
+}
 
 const RequestPage = () => {
     const id = useParams().id;
@@ -23,9 +37,13 @@ const RequestPage = () => {
         return (<div>Загрузка...</div>);
     }
 
+    if (!UserStore.userIsLoaded) {
+        return <div>Загрузка...</div>;
+    }
+
     return (<div className="request-page">
         <Card>
-            <RequestView {...RequestPageStore.data} isDetailView={true}/>
+            <RequestCard {...RequestPageStore.data} isDetailView={true} isMyCard={isMyCardCalculate(RequestPageStore.data)}/>
         </Card>
     </div>);
 

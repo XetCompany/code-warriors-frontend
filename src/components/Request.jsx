@@ -19,7 +19,6 @@ const RequestView = ({isDetailView = false, ...data}) => {
         return response.user.id === UserStore.user.id;
     });
 
-
     const num_responses = data.responses.length;
 
     return (<div>
@@ -47,23 +46,6 @@ const RequestView = ({isDetailView = false, ...data}) => {
         <div>Обновлен: {data.updated_at}</div>
         {!isDetailView && UserStore.role && UserStore.role.includes('performer') && (!isResponsed ? (
             <Button type="primary" onClick={() => {
-                // const url = SERVER_URL + 'info/request/' + data.id + '/add_response/';
-                // fetch(url, {
-                //     method: 'POST',
-                //     headers: {
-                //         Authorization: 'Bearer ' + UserStore.accessToken,
-                //     },
-                // }).then((response) => {
-                //     if (response.status === 201) {
-                //         RequestApi.getRequests().then(
-                //             (response) => {
-                //                 RequestStore.setData(response.data);
-                //                 RequestStore.setIsShowData(true);
-                //             }
-                //         )
-                //     } else {
-                //     }
-                // });
                 navigate('/request/' + data.id + '/');
             }}>Перейти</Button>) : (<Button type="primary" disabled={true}>Вы уже откликнулись</Button>))}
         {isDetailView && UserStore.role && UserStore.role.includes('performer') && (<>

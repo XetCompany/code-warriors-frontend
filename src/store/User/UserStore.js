@@ -68,6 +68,16 @@ class UserStore {
         )
     }
 
+    async asyncUpdateUser() {
+        await this.updateAccessToken();
+        const response = await UserApi.getUserInfo();
+        this.setUser(response.data.data.user);
+        this.setUserById(response.data.data.user.id);
+        this.setRole(response.data.data.user.groups);
+        this.setIsAuth(true);
+        this.setUserIsLoaded(true);
+    }
+
     async updateAccessToken() {
         const data = await UserApi.getAccessToken();
         this.accessToken = data.data.access;
