@@ -49,7 +49,9 @@ const Performers = () => {
             {SearchStore.isDataSearchShow ? (<>
                 {SearchStore.dataSearch.map((user) => {
                     return <div>
-                        <div><Link to={'/user/' + user.id}>{user.username}</Link></div>
+                        <div><Link to={'/user/' + user.id}>{user.username} {
+                            user.is_buy_update && "+" // типо подсвечивается желтым
+                        }</Link></div>
                     </div>
                 })}
             </>) : SearchStore.isSearch && <div>Загрузка...</div>}
