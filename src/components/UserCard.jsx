@@ -3,7 +3,7 @@ import User from "./User";
 import {Link} from "react-router-dom";
 
 const UserCard = ({isMyProfile, user}) => {
-    return <>{isMyProfile ?
+    return <div>{isMyProfile ?
         <Card style={{maxWidth: '50vw'}}>
             <div>
                 <User {...user} groups={user.groups}/>
@@ -13,13 +13,13 @@ const UserCard = ({isMyProfile, user}) => {
             </div>
         </Card>
     :
-    <div style={{display: 'flex', maxWidth: '100vw', backgroundColor: 'white', justifyContent: 'center'}}>
-        <div className="user_card">
+    <div style={{display: 'flex', maxWidth: '100vw', justifyContent: 'center'}}>
+        <Card className="user_card">
             <User {...user} groups={user.groups}/>
-        </div>
+        </Card>
     </div>
     }
-    </>
+    </div>
 }
 
 export default UserCard;

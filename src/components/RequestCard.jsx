@@ -103,7 +103,8 @@ const RequestCard = ({isMyCard = false, isDetailView = false, ...data}) => {
 
     const num_responses = data.responses.length;
 
-    return (<Card>
+    return (<div className="req-card">
+    <Card>
         {!isDetailView ? <Link to={'/request/' + data.id}><h2>{data.title}</h2></Link> : <h2>{data.title}</h2>}
         <div>Заказчик: <Link to={'/user/' + data.creator.id}>{data.creator.username}</Link></div>
         <div>Исполнитель: <Link to={'/user/' + data.executor.id}>{data.executor.username}</Link></div>
@@ -131,7 +132,8 @@ const RequestCard = ({isMyCard = false, isDetailView = false, ...data}) => {
         {UserStore.role && UserStore.role.includes('customer') && (
             <CustomerActions data={data} isResponsed={isResponsed} myResponse={myResponse}
                              isDetailView={isDetailView} navigate={navigate} isMyCard={isMyCard}/>)}
-    </Card>);
+    </Card>
+    </div>);
 }
 
 export default observer(RequestCard);

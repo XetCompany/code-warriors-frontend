@@ -21,7 +21,7 @@ const MyRequests = () => {
     }
 
     if (RequestStore.myRequests.length === 0) {
-        return <h1 style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: 400}}>Нет заказов</h1>;
+        return <h1 style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: 400}}>Нет заданий</h1>;
     }
 
     const requests = RequestStore.myRequests.filter((request) => {
@@ -29,7 +29,7 @@ const MyRequests = () => {
     });
 
     return (<div className="my-requests">
-        <h1>Мои заказы</h1>
+        <h1>Мои задания</h1>
         <h5 style={{width: 600}}>
             {requests.map((request, index) => {
                 return <RequestCard key={index} {...request} isMyCard={true}/>;

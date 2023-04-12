@@ -26,7 +26,7 @@ const User = () => {
         return <div>Загрузка...</div>
     }
 
-    return <div>
+    return <div className="user">
         <UserCard isMyProfile={false} user={UserCardStore.user}/>
         {UserCardStore.isUserCommentLoaded && <UserCommentCard comments={UserCardStore.comments}/>}
     </div>;

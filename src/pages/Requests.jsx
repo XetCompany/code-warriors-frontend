@@ -4,7 +4,8 @@ import RequestStore from "../store/Request/RequestStore";
 import RequestApi from "../store/Request/RequestApi";
 import RequestCard from "../components/RequestCard";
 import UserStore from "../store/User/UserStore";
-
+import Being from '../img/Being.png';
+import workflow from '../img/workflow.png'
 
 const isMyCardCalculate = (request) => {
     const isCustomer = UserStore.role.includes('customer');
@@ -57,7 +58,9 @@ const Requests = () => {
     )
 
     return (<div className="requests">
-        <h1>Заказы</h1>
+        <h1>Задания</h1>
+        <img className="img1" src={Being} />
+        <img className="img2" src={workflow} />
         <>
             <div>
                 {requests.map((request, index) => {

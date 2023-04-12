@@ -31,11 +31,23 @@
 .requests {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
   flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
-  background-color: #fff;
+  background-image: url('./img/image2.png');
   align-items: center;
+}
+
+.requests .img1 {
+  z-index: 1;
+  position: absolute;
+  margin-bottom: 830px;
+  margin-left: 673px;
+}
+
+.requests .img2 {
+  z-index: 1;
+  position: absolute;
+  margin-right: 704px;
 }
 
 .requests h1 {
@@ -51,6 +63,8 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  z-index: 999;
+  background-image: url('./img/image2.png');
 }
 
 .create-request {
@@ -62,7 +76,8 @@
   border-bottom: 1px solid rgb(8, 124, 232); 
   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px; 
   position: sticky;
-  background-color: #fff;
+  background-image: url('./img/test.png');
+  min-height: 570px;
 }
 
 .create-request h1 {
@@ -76,9 +91,13 @@
   justify-content: center;
 }
 
+.user {
+  background-image: url('./img/image2.png');
+}
+
 .my-acc {
-  margin-top: 20px;
-  background-color: #fff;
+  background-image: url('./img/test.png');
+  min-height: 570px;
 }
 
 .my-acc h1 {
@@ -93,9 +112,10 @@
 .request-page {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
   flex-direction: column;
   align-items: center;
+  background-image: url('./img/image2.png');
+  min-height: 570px;
 }
 
 .request-page h1 {
@@ -108,10 +128,10 @@
 .my-requests {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
+  background-image: url('./img/test.png');
+  min-height: 570px;
 }
 
 .my-requests h1 {
@@ -209,10 +229,10 @@
 .rating {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
+  background-image: url('./img/test.png');
+  min-height: 570px;
 }
 
 .rating h1 {
@@ -229,8 +249,7 @@
   justify-content: center;
   margin-top: 5px;
   flex-direction: column;
-  box-shadow: 0 4px 8px 0 rgba(239, 150, 7, 0.846);
-  max-width: 300px;
+  max-width: 400px;
   align-items: center;
 }
 
@@ -269,7 +288,6 @@ table{border-collapse:collapse;border-spacing:0}
     padding: 60px 0 0 0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     height: 1200px;
-    margin-top: 20px;
 }
 .section_search {
     background: url("./img/Union.png") no-repeat;
