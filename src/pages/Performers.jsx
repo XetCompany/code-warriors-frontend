@@ -75,7 +75,7 @@ const Performers = () => {
                         borderRadius: '10px',
                         height: '53px',
                     }} onClick={() => navigate(`/user/${user.id}`)}>
-                        {user.username ? user.username + (user.is_buy_update && " +") // типо подсвечивается желтым
+                        {user.username ? user.username + (user.is_buy_update ? " +" : "")  // типо подсвечивается желтым
                             : 'Неизвестный отправитель'}
                     </Button>
                 })}

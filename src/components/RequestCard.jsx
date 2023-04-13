@@ -100,27 +100,22 @@ const RequestCard = ({isMyCard = false, isDetailView = false, ...data}) => {
 
     const num_responses = data.responses.length;
 
-    return (<div className="req-card">
-        <Card>
-            {!isDetailView ? <Link to={'/request/' + data.id}><h2>{data.title}</h2></Link> : <h2>{data.title}</h2>}
-            <div>Заказчик: <Link to={'/user/' + data.creator.id}>{data.creator.username}</Link></div>
-            <div>Исполнитель: <Link to={'/user/' + data.executor.id}>{data.executor.username}</Link></div>
-            <div>Категория: {data.category.name}</div>
-            <div>Фотографии: {data.photos.map((photo, index) => {
-                return (<span key={index}>{photo}{index !== data.photos.length - 1 ? ', ' : ''}</span>);
-            })}</div>
-            <div>Видео: {data.videos.map((video, index) => {
-                return (<span key={index}>{video}{index !== data.videos.length - 1 ? ', ' : ''}</span>);
-            })}</div>
-            <div>Отклики: {num_responses}</div>
-            <div>Описание: {data.description}</div>
-            <div>Цена от: {data.price_from}</div>
-            <div>Цена до: {data.price_to}</div>
-            <div>Срок выполнения в днях: {data.deadline_in_days}</div>
-            <div>Место: {data.place}</div>
-            <div>Активен: {data.is_active ? 'Да' : 'Нет'}</div>
-            <div>Создан: {data.created_at}</div>
-            <div>Обновлен: {data.updated_at}</div>
+    return (<Card>
+        {!isDetailView ? <Link to={'/request/' + data.id}><h2>{data.title}</h2></Link> : <h2>{data.title}</h2>}
+        <div>Заказчик: <Link to={'/user/' + data.creator.id}>{data.creator.username}</Link></div>
+        <div>Категория: {data.category.name}</div>
+        <div>Фотографии: {data.photos.map((photo, index) => {
+            return (<span key={index}>{photo}{index !== data.photos.length - 1 ? ', ' : ''}</span>);
+        })}</div>
+        <div>Видео: {data.videos.map((video, index) => {
+            return (<span key={index}>{video}{index !== data.videos.length - 1 ? ', ' : ''}</span>);
+        })}</div>
+        <div>Отклики: {num_responses}</div>
+        <div>Описание: {data.description}</div>
+        <div>Цена от: {data.price_from} до {data.price_to}</div>
+        <div>Срок выполнения: {data.deadline_in_days}</div>
+        <div>Место: {data.place}</div>
+        <div>Создан: {data.created_at}</div>
 
             {UserStore.role && UserStore.role.includes('performer') && (
                 <PerformerActions data={data} isResponsed={isResponsed} myResponse={myResponse}

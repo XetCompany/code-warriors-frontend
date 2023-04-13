@@ -1,26 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 .header {
-  background-color: rgb(46, 131, 233);
-  top: 0;
+  background-color: rgb(46, 131, 233); 
   font-family: 'Ubuntu', sans-serif;
-  height: 77px;
-  border-bottom: 1px solid rgb(8, 124, 232);
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
+  height: 77px; 
+  top: 0;
+  left: 5px;
+  border-bottom: 1px solid rgb(8, 124, 232); 
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px; 
   position: sticky;
-  border-radius: 25px 25px 0 0;
+  border-radius: 25px;
   z-index: 1000;
-  width: 100%
+  width: 1350px;
+  margin-left: 60px;
 }
-
+.Logo {
+  margin-top: 30px;
+  margin-left: 50px;
+}
 .header ul {
-  display: flex;
-  list-style: none;
-  justify-content: space-around;
-  padding: 34px;
+  display: flex; 
+  list-style: none; 
+  padding: 30px 0 34px 0;
+  justify-content: end;
 }
+.navbar {
+  flex-direction: row;
 
+}
 .navbarul li a {
+  position: relative;
+  bottom: 115px;
+  margin-right: 50px;
   color: #fff;
+  font-family: 'Ubuntu';
+  font-style: normal;
   font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
   text-transform: uppercase;
   list-style: none;
   text-decoration: none;
@@ -29,25 +46,17 @@
 }
 
 .requests {
+  border-radius: 20px;
+  margin-left: 500px;
   display: flex;
   justify-content: center;
+  margin-top: 20px;
   flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
-  background-image: url('./img/image2.png');
+  background-color: #f8e8e8;
   align-items: center;
-}
-
-.requests .img1 {
-  z-index: 1;
-  position: absolute;
-  margin-bottom: 830px;
-  margin-left: 673px;
-}
-
-.requests .img2 {
-  z-index: 1;
-  position: absolute;
-  margin-right: 704px;
+  width: 500px;
+  padding: 0 30px 0 30px;
 }
 
 .requests h1 {
@@ -56,7 +65,7 @@
   font-weight: 400;
   margin-top: 25px;
   margin-bottom: 25px;
-  color: #000;
+  color: #0057d8;
 }
 
 .requests div {
@@ -71,11 +80,14 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  border-bottom: 1px solid rgb(8, 124, 232);
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
+  border-bottom: 1px solid rgb(8, 124, 232); 
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px; 
   position: sticky;
-  background-image: url('./img/test.png');
-  min-height: 570px;
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 20px 80px 30px 40px;
+  width: 650px;
+  margin-left: 350px;
 }
 
 .create-request h1 {
@@ -86,15 +98,14 @@
   color: #000;
   display: flex;
   justify-content: center;
+  margin-left: 40px;
 }
-
-.user {
-  background-image: url('./img/image2.png');
+.request-card {
+  border-radius: 30px;
 }
-
 .my-acc {
-  background-image: url('./img/test.png');
-  min-height: 570px;
+  margin-top: 20px;
+  background-color: #fff;
 }
 
 .my-acc h1 {
@@ -109,10 +120,9 @@
 .request-page {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
   flex-direction: column;
   align-items: center;
-  background-image: url('./img/image2.png');
-  min-height: 570px;
 }
 
 .request-page h1 {
@@ -124,14 +134,19 @@
 
 .my-requests {
   display: flex;
+  margin-left: 400px;
   justify-content: center;
+  margin-top: 40px;
   flex-direction: column;
   align-items: center;
-  background-image: url('./img/test.png');
-  min-height: 570px;
+  background-color: #087CE8;
+  border-radius: 30px;
+  width: 700px;
+  margin-bottom: 30px;
 }
 
 .my-requests h1 {
+  color: white;
   font-size: 30px;
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
@@ -139,13 +154,25 @@
   margin-top: 25px;
   margin-bottom: 25px;
 }
-
+.edit_text {
+  color: white;
+  padding: 20px;
+  
+}
 .my-request-edit {
   display: flex;
   justify-content: center;
   margin-top: 20px;
   flex-direction: column;
   align-items: center;
+  font-size: 30px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  background-color: #087CE8;
+  width: 1000px;
+  border-radius: 10px;
+  margin-left: 200px;
+  margin-top: 20px;
 }
 
 .account {
@@ -165,13 +192,20 @@
 
 .register {
   display: flex;
+  border-radius: 30px;
+  margin-top: 40px;
+  margin-left: 350px;
+  padding: 40px 120px 50px 50px;
+  width: 600px;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-image: url('./img/image2.png');
-  min-height: 570px;
+  background: url("./img/Group\ 59.png ");
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 }
 
 .register h1 {
+  
   font-family: 'Ubuntu', sans-serif;
   font-size: 30px;
   font-weight: 400;
@@ -185,9 +219,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-image: url('./img/image2.png');
-  min-height: 570px;
+  background-color: #fff;
+  width: 600px;
+  margin-top: 50px;
+  margin-left: 360px;
+  padding: 20px 90px 50px 0;
+  border-radius: 30px;
+  background-color: white;
+  background-repeat: no-repeat;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .login h1 {
@@ -197,6 +237,7 @@
   display: flex;
   justify-content: center;
   margin-top: 25px;
+  margin-left: 150px;
   margin-bottom: 25px;
   color: #000;
 }
@@ -224,10 +265,10 @@
 .rating {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
   flex-direction: column;
   align-items: center;
-  background-image: url('./img/test.png');
-  min-height: 570px;
+  background-color: #fff;
 }
 
 .rating h1 {
@@ -244,7 +285,8 @@
   justify-content: center;
   margin-top: 5px;
   flex-direction: column;
-  max-width: 400px;
+  box-shadow: 0 4px 8px 0 rgba(239, 150, 7, 0.846);
+  max-width: 300px;
   align-items: center;
 }
 
@@ -257,7 +299,7 @@ blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
 table{border-collapse:collapse;border-spacing:0}
 * body {
     background-color: #E1D7D7;
-    padding: 0 70px 0 70px;
+
 
 }
 .create_image {
@@ -278,20 +320,24 @@ table{border-collapse:collapse;border-spacing:0}
     margin-left: 50px;
 }
 .section {
+    margin-left: 85px;
     background: url("./img/test.png");
     background-repeat: no-repeat;
     padding: 60px 0 0 0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     height: 1200px;
+    margin-top: 20px;
+    border-radius: 0 0 30px 30px;
 }
 .section_search {
     background: url("./img/Union.png") no-repeat;
-    background-size: 1095px 550px;
+    background-size: 1150px 550px;
     height: 88%;
     margin-bottom: 30px;
     margin-left: 60px;
     background-repeat: no-repeat;
     padding: 140px 0 0 103px ;
+
 
 }
 .search_h {
@@ -353,7 +399,7 @@ table{border-collapse:collapse;border-spacing:0}
     left: 290px;
     display: flex;
     flex-direction: row;
-    width:  850px;
+    width:  800px;
     justify-content:space-around;
 }
 .button_but {
@@ -368,7 +414,7 @@ table{border-collapse:collapse;border-spacing:0}
 .button_line_2 {
     position: absolute;
     top: 590px;
-    left: 485px;
+    left: 455px;
     display: flex;
     flex-direction: row;
     width:  500px;
@@ -377,7 +423,7 @@ table{border-collapse:collapse;border-spacing:0}
 .section_text {
     position: absolute;
     top: 780px;
-    left: 270px;
+    left: 245px;
     font-family: 'Ubuntu', sans-serif;
     font-size: 48px;
     font-style: normal;
@@ -544,9 +590,6 @@ table{border-collapse:collapse;border-spacing:0}
   height: 0.003rem;
 }
 
-
-/* style.css */
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f5f9;
@@ -658,4 +701,8 @@ button:hover {
 
 .loading {
     font-style: italic;
+}
+
+.Button_login {
+  margin-bottom: 20px;
 }

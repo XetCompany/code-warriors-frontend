@@ -64,7 +64,7 @@ const Requests = () => {
         <>
             <div>
                 {requests.map((request, index) => {
-                    return <RequestCard key={index} {...request} isMyCard={isMyCardCalculate(request)}/>;
+                    return <RequestCard key={index} {...request} isMyCard={isMyCardCalculate(request)}  />;
                 })}
             </div>
         </>
