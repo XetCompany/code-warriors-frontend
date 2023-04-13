@@ -25,6 +25,10 @@
   padding: 30px 0 34px 0;
   justify-content: end;
 }
+.user {
+  margin: 20px 300px;
+  background-image: url('./img/image2.png');
+}
 .navbar {
   flex-direction: row;
   max-height: 50px;
@@ -50,6 +54,7 @@
   border-radius: 20px;
   margin-left: 500px;
   display: flex;
+  margin-top: 20px;
   justify-content: center;
   flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
@@ -79,6 +84,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin-top: 20px;
   align-items: center;
   border-bottom: 1px solid rgb(8, 124, 232);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
@@ -135,6 +141,7 @@
 .my-requests {
   display: flex;
   margin-left: 400px;
+  margin-top: 20px;
   justify-content: center;
   flex-direction: column;
   align-items: center;
@@ -161,16 +168,15 @@
 .my-request-edit {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
   flex-direction: column;
   align-items: center;
   font-size: 30px;
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
-  background-color: #087CE8;
-  width: 1000px;
+  background-image: url('./img/image2.png');
+  width: 800px;
   border-radius: 10px;
-  margin-left: 200px;
+  margin-left: 350px;
   margin-top: 20px;
 }
 
@@ -328,20 +334,21 @@ table{border-collapse:collapse;border-spacing:0}
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     height: 1200px;
     margin-top: 20px;
-    border-radius: 0 0 30px 30px;
+    border-radius: 0 0 30px 0px;
 }
 .section_search {
     background: url("./img/Union.png") no-repeat;
-    background-size: 1150px 550px;
-    height: 88%;
+    background-size: 1170px 550px;
+    height: 80%;
     margin-bottom: 30px;
-    margin-left: 60px;
+    margin-left: 50px;
     background-repeat: no-repeat;
-    padding: 140px 0 0 103px ;
+    padding: 140px 0 0 0;
 
 
 }
 .search_h {
+  margin-right: 60px;
     font-size: 64px;
     font-family: 'Ubuntu', sans-serif;
     color: white;
@@ -605,10 +612,10 @@ h1 {
 }
 
 .container {
-    width: 100%;
     background-image: url('./img/image2.png');
     min-height: 570px;
     border-radius: 5px;
+    margin: 20px 300px 0 300px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
