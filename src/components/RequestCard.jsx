@@ -7,7 +7,6 @@ import {SERVER_URL} from "../base/Api/constants";
 import RequestPageApi from "../store/Request/RequestPageApi";
 import RequestPageStore from "../store/Request/RequestPageStore";
 import RequestStore from "../store/Request/RequestStore";
-import Chat from "./Chat";
 
 
 const PerformerActions = ({data, isResponsed, myResponse, isDetailView, navigate, isMyCard = false}) => {
@@ -132,7 +131,13 @@ const RequestCard = ({isMyCard = false, isDetailView = false, ...data}) => {
                                  isDetailView={isDetailView} navigate={navigate} isMyCard={isMyCard}/>)}
 
             {UserStore.role && UserStore.role.includes('performer') && isDetailView && data.executor.id === UserStore.user.id && (
-                <Chat user_id={data.creator.id}/>)}
+                <Button onClick={
+                    () => {
+                        navigate("/chat/" + data.creator.id)
+                    }
+                }>
+                    Перейти в сообщения
+                </Button>)}
         </Card>
     </div>);
 }

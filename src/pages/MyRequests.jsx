@@ -25,7 +25,13 @@ const MyRequests = () => {
     }
 
     const requests = RequestStore.myRequests.filter((request) => {
-        return (UserStore.role.includes('customer') ? request.creator.id : (UserStore.role.includes('performer') ? request.performer.id : null)) === UserStore.user.id;
+        if (UserStore.role.includes('customer')) {
+            return request.creator.id === UserStore.user.id;
+        }
+        if (UserStore.role.includes('performer')) {
+            return request.executor.id === UserStore.user.id;
+        }
+        return null
     });
 
     return (<div className="my-requests">

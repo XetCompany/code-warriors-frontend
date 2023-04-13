@@ -19,9 +19,9 @@ const NavBar = () => {
                     <li><Link to={"/requests"}>Найти задания</Link></li>
                     {userStore.role.includes('customer') ? <>
                         <li><Link to={"/request/create"}>Создать задание</Link></li>
-                        <li><Link to={"/my-requests"}>Мои задания</Link></li>
                         <li><Link to={"/performers"}>Исполнители</Link></li>
                     </> : null}
+                    <li><Link to={"/my-requests"}>Мои задания</Link></li>
                     <li><Link to="/personal-account">Мой
                         аккаунт{userStore.notifications.length > 0 ? <>({userStore.notifications.length})</> : null}</Link>
                     </li>
