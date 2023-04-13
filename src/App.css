@@ -51,10 +51,9 @@
   margin-left: 500px;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
   flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
-  background-color: #f8e8e8;
+  background-image: url('./img/image2.png');
   align-items: center;
   width: 500px;
   padding: 0 30px 0 30px;
@@ -84,9 +83,9 @@
   border-bottom: 1px solid rgb(8, 124, 232); 
   box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px; 
   position: sticky;
-  background-color: #fff;
+  background-image: url('./img/image2.png');
   border-radius: 30px;
-  padding: 20px 80px 30px 40px;
+  padding: 20px 40px 30px 40px;
   width: 650px;
   margin-left: 350px;
 }
