@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 import UserStore from "../store/User/UserStore";
 import RequestApi from "../store/Request/RequestApi";
 import RequestStore from "../store/Request/RequestStore";
-import {Button, Checkbox} from "antd";
+import {Button, Card, Checkbox} from "antd";
 import SearchStore from "../store/Request/SearchStore";
 import {useNavigate} from "react-router-dom";
 
@@ -28,30 +28,34 @@ const Performers = () => {
     return (<div className="container performers">
         <h1 className={"title"}>Исполнители</h1>
         {RequestStore.isShowCategories ? (<div className={"checkbox-container-wrapper"}>
-            <p className={"checkbox-container-title"}>
-                Выберите категории:
-            </p>
-            <div className="checkbox-container">
-                {RequestStore.categories.map((category) => {
-                    return <Checkbox className="checkbox-item"
-                                     name={category.id}
-                                     checked={!!RequestStore.chosenCategories.find((chosenCategory) => {
-                                         return chosenCategory.id === category.id;
-                                     })}
-                                     onChange={(e) => {
-                                         if (e.target.checked) {
-                                             RequestStore.addChosenCategory(category);
-                                         } else {
-                                             RequestStore.removeChosenCategory(category);
-                                         }
-                                     }}
-                    >{category.name}</Checkbox>
-                })}
-            </div>
+            <Card>
+                <p className={"checkbox-container-title"}>
+                    Выберите категории:
+                </p>
+                <div className="checkbox-container">
+                    {RequestStore.categories.map((category) => {
+                        return <Checkbox className="checkbox-item"
+                                        name={category.id}
+                                        checked={!!RequestStore.chosenCategories.find((chosenCategory) => {
+                                            return chosenCategory.id === category.id;
+                                        })}
+                                        onChange={(e) => {
+                                            if (e.target.checked) {
+                                                RequestStore.addChosenCategory(category);
+                                            } else {
+                                                RequestStore.removeChosenCategory(category);
+                                            }
+                                        }}
+                        >{category.name}</Checkbox>
+                    })}
+                </div>
+            </Card>
         </div>) : <div>Загрузка...</div>}
-        <Button type="primary" htmlType="submit" className={"button"} onClick={() => {
-            SearchStore.search();
-        }}>Поиск</Button>
+        <div className="btn">
+            <Button type="primary" htmlType="submit" className={"button"} onClick={() => {
+                SearchStore.search();
+            }}>Поиск</Button>
+        </div>
         <hr/>
         <div style={{
             display: 'flex',

@@ -1,4 +1,4 @@
-import {Button, Form, Input, Select, Upload} from "antd";
+import {Button, Card, Form, Input, Select, Upload} from "antd";
 import FormApi from "../store/Form/FormApi";
 import React, {useEffect} from "react";
 import RequestApi from "../store/Request/RequestApi";
@@ -48,7 +48,7 @@ const CreateRequest = () => {
 
     return (
     <div className="create-request">
-        <div className="request-card">
+        <Card className="request-card">
             <h1>Создание задания</h1>
                 <Form
                     name="basic"
@@ -179,7 +179,7 @@ const CreateRequest = () => {
                         </Button>
                     </Form.Item>
                 </Form>
-        </div>
+        </Card>
     </div>)
 }
 

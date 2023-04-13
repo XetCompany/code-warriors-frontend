@@ -64,13 +64,11 @@
   justify-content: center;
   flex-direction: column;
   z-index: 999;
-  background-image: url('./img/image2.png');
 }
 
 .create-request {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
   flex-direction: column;
   align-items: center;
   border-bottom: 1px solid rgb(8, 124, 232);
@@ -83,7 +81,6 @@
 .create-request h1 {
   font-size: 30px;
   font-weight: 400;
-  margin-top: 25px;
   margin-bottom: 25px;
   font-family: 'Ubuntu', sans-serif;
   color: #000;
@@ -168,11 +165,10 @@
 
 .register {
   display: flex;
-  margin-top: 20px;
-  flex-direction: column;
   align-items: center;
-  background-color: #fff;
-  min-height: 585px;
+  justify-content: center;
+  background-image: url('./img/image2.png');
+  min-height: 570px;
 }
 
 .register h1 {
@@ -181,18 +177,17 @@
   font-weight: 400;
   display: flex;
   justify-content: center;
-  margin-top: 25px;
   margin-bottom: 25px;
   color: #000;
 }
 
 .login {
   display: flex;
-  margin-top: 20px;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
-  min-height: 585px;
+  justify-content: center;
+  background-image: url('./img/image2.png');
+  min-height: 570px;
 }
 
 .login h1 {
@@ -567,7 +562,8 @@ h1 {
 
 .container {
     width: 100%;
-    background-color: #ffffff;
+    background-image: url('./img/image2.png');
+    min-height: 570px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -601,8 +597,10 @@ h1 {
 }
 
 .checkbox-container-wrapper {
-    /*display: flex;*/
-    /*flex-wrap: wrap;*/
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
     padding: 0 1rem 1rem 1rem;
 }
@@ -617,8 +615,9 @@ h1 {
     margin-inline-start: 0;
 }
 
-.performers .button {
-    margin-left: 1rem;
+.performers .btn {
+    display: flex;
+    justify-content: center;
 }
 
 .performers .ant-checkbox-wrapper {

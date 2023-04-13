@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Form, Input, Card} from 'antd';
+import {Button, Card, Form, Input} from 'antd';
 import FormApi from '../store/Form/FormApi';
 import {useNavigate} from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
@@ -18,6 +18,7 @@ const App = () => {
     FormApi.setForm(form);
     const navigate = useNavigate();
     return (<div className='login'>
+        <Card>
         <h1>Вход</h1>
             <Form
                 name="basic"
@@ -69,6 +70,7 @@ const App = () => {
                     <p>Нет аккаунта? <NavLink to="/register">Зарегистрироваться</NavLink> || <NavLink to="/request-password-reset">Забыли пароль?</NavLink></p>
                 </Form.Item>
             </Form>
+        </Card>
     </div>)
 };
 export default App;

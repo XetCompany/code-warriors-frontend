@@ -59,8 +59,8 @@ const Requests = () => {
 
     return (<div className="requests">
         <h1>Задания</h1>
-        <img className="img1" src={Being} />
-        <img className="img2" src={workflow} />
+        <img className="img1" src={Being} alt="jwef" />
+        <img className="img2" src={workflow} alt="ewfk" />
         <>
             <div>
                 {requests.map((request, index) => {

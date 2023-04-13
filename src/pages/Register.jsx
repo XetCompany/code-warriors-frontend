@@ -18,6 +18,7 @@ const Register = () => {
     FormApi.setForm(form);
     const navigate = useNavigate();
     return (<div className='register'>
+        <Card>
             <h1>Регистрация</h1>
             <Form
                 name="basic"
@@ -89,6 +90,7 @@ const Register = () => {
                     </p>
                 </Form.Item>
             </Form>
+        </Card>
     </div>)
 };
 export default Register;
