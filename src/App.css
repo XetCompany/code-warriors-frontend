@@ -136,10 +136,9 @@
   display: flex;
   margin-left: 400px;
   justify-content: center;
-  margin-top: 40px;
   flex-direction: column;
   align-items: center;
-  background-color: #087CE8;
+  background-image: url('./img/image2.png');
   border-radius: 30px;
   width: 700px;
   margin-bottom: 30px;

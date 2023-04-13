@@ -50,10 +50,7 @@ const Chat = ({user_id}) => {
         return <div>Загрузка...</div>
     }
 
-    return (<div style={{
-        width: '100%', height: '100%', backgroundColor: '#97cbf0'
-
-    }} className={"chat"}>
+    return (<div className={"chat"}>
         <div className={"chat-header"}>
             <div className={"chat-header-title"}>
                 <Link to={"/user/" + RequestStore.userIdChat + "/"} style={{

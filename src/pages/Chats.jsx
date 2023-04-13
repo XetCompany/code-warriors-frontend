@@ -24,10 +24,9 @@ const Chats = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: '#0b8be5',
-            padding: '20px',
+            padding: '257px',
             borderRadius: '0 0 10px 10px',
-        }}>
+        }} className="back">
             {ChatsStore.chats.map((value, index, array) => {
                 return <Button style={{
                     width: '100%',

@@ -1,9 +1,12 @@
 .chat {
     display: flex;
+    justify-content: center;
+    margin-left: 300px;
     flex-direction: column;
     height: 100%;
     position: relative;
-
+    max-width: 60%;
+    background-image: url('../img/image2.png');
     border-radius: 10px;
 }
 
@@ -13,7 +16,6 @@
     align-items: center;
     padding: 10px 16px;
     border-bottom: 1px solid #ccc;
-    background-color: #0b8be5;
 
     border-radius: 10px 10px 0 0;
 }
@@ -34,4 +36,9 @@
     padding: 10px 16px;
     overflow-y: auto;
     height: 450px;
+}
+
+.back {
+    background-image: url('../img/image2.png');
+    margin: 0 235px 0 183px;
 }
