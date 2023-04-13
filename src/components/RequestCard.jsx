@@ -100,7 +100,7 @@ const RequestCard = ({isMyCard = false, isDetailView = false, ...data}) => {
 
     const num_responses = data.responses.length;
 
-    return (<Card>
+    return (<div>
         {!isDetailView ? <Link to={'/request/' + data.id}><h2>{data.title}</h2></Link> : <h2>{data.title}</h2>}
         <div>Заказчик: <Link to={'/user/' + data.creator.id}>{data.creator.username}</Link></div>
         <div>Категория: {data.category.name}</div>
@@ -133,7 +133,6 @@ const RequestCard = ({isMyCard = false, isDetailView = false, ...data}) => {
                 }>
                     Перейти в сообщения
                 </Button>)}
-        </Card>
     </div>);
 }
 

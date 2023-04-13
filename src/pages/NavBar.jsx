@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 import React from "react";
 import userStore from "../store/User/UserStore";
 import {observer} from "mobx-react";
+import Logo from '../img/Group1.png';
 
 const NavBar = () => {
     const logout = () => {
