@@ -25,7 +25,7 @@ const NavBar = () => {
                     <li><Link to="/personal-account">Мой
                         аккаунт{userStore.notifications.length > 0 ? <>({userStore.notifications.length})</> : null}</Link>
                     </li>
-                    <li><Link to="/rating">Рейтинг</Link></li>
+                    {/*<li><Link to="/rating">Рейтинг</Link></li>*/}
                     <li><Link to="/chats">Чаты</Link></li>
                     <li><Link to={"/"} onClick={logout}>Выход</Link></li>
                 </> : <>
