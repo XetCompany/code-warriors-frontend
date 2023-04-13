@@ -16,21 +16,20 @@ const NavBar = () => {
     }
     return (<header className="header">
         <nav className="navbar">
+            <img className="Logo" src={Logo} alt=""/>
             <ul className="navbarul">
                 {userStore.user !== null ? <>
                     <li><Link to={"/requests"}>Заказы</Link></li>
                     {userStore.role.includes('customer') ? <>
                         <li><Link to={"/request/create"}>Создать заказ</Link></li>
-                        <li><Link to={"/my-requests"}>Мои заказы</Link></li>
-                        <li><Link to={"/performers"}>Исполнители</Link></li>
+                        <li><Link to={"/my-requests"}>Мои заказы</Link></li>                        <li><Link to={"/performers"}>Исполнители</Link></li>
                     </> : null}
-                    <li><Link to="/personal-account">Мой аккаунт{userStore.notifications.length > 0 ? <>({userStore.notifications.length})</> : null}</Link></li>
                     <li><Link to="/rating">Рейтинг</Link></li>
+                    <li><Link to="/personal-account">Мой аккаунт{userStore.notifications.length > 0 ? <>({userStore.notifications.length})</> : null}</Link></li>
                     <li><Link to={"/"} onClick={logout}>Выход</Link></li>
                 </> : <>
-                    <li><Link to="/">Главная</Link></li>
-                    <li><Link to="/register">Регистрация</Link></li>
-                    <li><Link to="/login">Вход</Link></li>
+                    <li><Link className="link_header" to="/register">Регистрация</Link></li>
+                    <li><Link className="link_header" to="/login">Вход</Link></li>
                 </>}
 
 

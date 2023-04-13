@@ -63,7 +63,7 @@ const App = () => {
                         offset: 8, span: 16,
                     }}
                 >
-                    <Button type="primary" htmlType="submit">
+                    <Button className='Button_login' type="primary" htmlType="submit">
                         Войти
                     </Button>
                     <p>Нет аккаунта? <NavLink to="/register">Зарегистрироваться</NavLink> || <NavLink to="/request-password-reset">Забыли пароль?</NavLink></p>

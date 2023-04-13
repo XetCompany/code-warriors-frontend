@@ -73,7 +73,7 @@ const MyRequestsEdit = () => {
     });
 
     return (<div className="my-request-edit">
-        <h1>Редактировать заказ</h1>
+        <h1 className="edit_text">Редактировать заказ</h1>
         <Card>
             <Form
                 name="basic"
