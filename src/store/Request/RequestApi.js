@@ -15,7 +15,7 @@ class RequestApi extends ApiClass {
     async getMyRequests() {
         let url;
         let route;
-        route = BACKEND_URLS.REQUESTS + UserStore.userId + '/';
+        route = BACKEND_URLS.REQUESTS + UserStore.user.id + '/';
         url = new Url({route}).defaultUrl;
         return await this.sendGet(url);
     }

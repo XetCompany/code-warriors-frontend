@@ -1,5 +1,6 @@
 export const BACKEND_URLS = {
     RESET_PASSWORD: 'auth/reset_password/reset/',
+    CHAT_MESSAGES: 'info/messenger/messages/',
     REQUEST_PASSWORD_RESET: 'auth/reset_password/request/',
     LOGIN: 'auth/login/token/',
     REFRESH_TOKEN: 'auth/login/token/refresh/',
@@ -24,7 +25,7 @@ export const BACKEND_URLS = {
 };
 Object.freeze(BACKEND_URLS);
 
-export const SERVER_URL = 'http://6.tcp.eu.ngrok.io:13444/api/';
+export const SERVER_URL = 'http://127.0.0.1:8000/api/';
 
 export const BACKEND_SEARCH_PATTERNS = {
     PRICE: 'price', CATEGORY: 'category', SUBCATEGORY: 'subcategory',

@@ -2,8 +2,6 @@ import {Link} from "react-router-dom";
 import React from "react";
 import userStore from "../store/User/UserStore";
 import {observer} from "mobx-react";
-import Logo from "../img/Group1.png";
-import {ImportOutlined, UserOutlined, StarFilled} from "@ant-design/icons";
 
 const NavBar = () => {
     const logout = () => {
@@ -24,8 +22,11 @@ const NavBar = () => {
                         <li><Link to={"/my-requests"}>Мои задания</Link></li>
                         <li><Link to={"/performers"}>Исполнители</Link></li>
                     </> : null}
-                    <li><Link to="/personal-account">Мой аккаунт{userStore.notifications.length > 0 ? <>({userStore.notifications.length})</> : null}</Link></li>
+                    <li><Link to="/personal-account">Мой
+                        аккаунт{userStore.notifications.length > 0 ? <>({userStore.notifications.length})</> : null}</Link>
+                    </li>
                     <li><Link to="/rating">Рейтинг</Link></li>
+                    <li><Link to="/chats">Чаты</Link></li>
                     <li><Link to={"/"} onClick={logout}>Выход</Link></li>
                 </> : <>
                     <li><Link to="/register">Регистрация</Link></li>

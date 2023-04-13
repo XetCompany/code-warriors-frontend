@@ -8,24 +8,24 @@ import UserStore from "../store/User/UserStore";
 const MyRequests = () => {
     useEffect(() => {
         RequestStore.setIsShowMyRequests(false);
-        requestApi.getMyRequests().then(
-            (response) => {
-                RequestStore.setMyRequests(response.data.data);
-                RequestStore.setIsShowMyRequests(true);
-            }
-        );
+        requestApi.getMyRequests().then((response) => {
+            RequestStore.setMyRequests(response.data.data);
+            RequestStore.setIsShowMyRequests(true);
+        });
     }, [])
 
     if (!RequestStore.isShowMyRequests) {
-        return <div style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: 400}}>Загрузка...</div>;
+        return <div
+            style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: 400}}>Загрузка...</div>;
     }
 
     if (RequestStore.myRequests.length === 0) {
-        return <h1 style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: 400}}>Нет заданий</h1>;
+        return <h1 style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: 400}}>Нет
+            заданий</h1>;
     }
 
     const requests = RequestStore.myRequests.filter((request) => {
-        return request.creator.id === UserStore.user.id;
+        return (UserStore.role.includes('customer') ? request.creator.id : (UserStore.role.includes('performer') ? request.performer.id : null)) === UserStore.user.id;
     });
 
     return (<div className="my-requests">

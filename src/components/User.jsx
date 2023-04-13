@@ -1,9 +1,14 @@
-import {Rate} from "antd";
+import {Button, Rate} from "antd";
+import UserStore from "../store/User/UserStore";
+import {useNavigate} from "react-router-dom";
+import {observer} from "mobx-react";
 
 const User = ({username, email, groups, ...data}) => {
     const transformGroups = {
         'customer': 'заказчик', 'performer': 'исполнитель',
     }
+
+    const navigate = useNavigate();
 
     const perhapsNullFields = ['fullname', 'phone', 'description', 'notifications', 'photos', 'videos'];
     perhapsNullFields.forEach(field => {
@@ -14,9 +19,9 @@ const User = ({username, email, groups, ...data}) => {
         }
     });
 
-    console.log(data);
-
-    return (<div style={{width: '100%'}}>
+    return (<div style={{
+        width: '400px'
+    }}>
         <h3 style={{fontWeight: 'bold'}}>Информация о пользователе</h3>
         <div>Имя пользователя: {username}</div>
         <div>Почта: {email}</div>
@@ -41,7 +46,13 @@ const User = ({username, email, groups, ...data}) => {
         <div>
             Рейтинг: {data.rating} <Rate disabled defaultValue={Math.round(data.rating)}/>
         </div>
+        {UserStore.role && UserStore.role.includes('customer') && (<div>
+            <Button onClick={() => {
+                navigate('/chat/' + data.id + '/');
+            }}>Связаться с пользователем</Button>
+        </div>)}
+
     </div>);
 }
 
-export default User;
+export default observer(User);

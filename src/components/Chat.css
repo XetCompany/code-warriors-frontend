@@ -1,0 +1,38 @@
+.chat {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    border-bottom: 1px solid #ccc;
+    background-color: #0b8be5;
+
+    border-radius: 10px 10px 0 0;
+}
+
+.chat-header-title {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.tobottom {
+    position: absolute;
+    bottom: 60px;
+    right: 30px;
+}
+
+.messages-container {
+    padding: 10px 16px;
+    overflow-y: auto;
+    height: 500px;
+}
