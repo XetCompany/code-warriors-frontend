@@ -1,0 +1,23 @@
+.message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #bde2fc;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 16px;
+    max-width: 70%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message-sender {
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #084d84;
+}
+
+.message-content {
+    color: #084d84;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}

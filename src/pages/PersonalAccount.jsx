@@ -33,7 +33,9 @@ const PersonalAccount = () => {
         <div style={{width: '50%'}}>
             <h1 style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: '400'}}>Личный кабинет</h1>
             <UserCard isMyProfile={true} user={UserStore.user} />
-            {UserCardStore.isUserCommentLoaded && <UserCommentCard comments={UserCardStore.comments}/>}
+            <div>
+                {UserCardStore.isUserCommentLoaded && <UserCommentCard comments={UserCardStore.comments}/>}
+            </div>
         </div>
         <div style={{width: '50%'}}>
             <h1 style={{display: 'flex', justifyContent: 'center', fontSize: '30px', fontWeight: '400'}}>Уведомления</h1>

@@ -15,7 +15,7 @@ const PerformerActions = ({data, isResponsed, myResponse, isDetailView, navigate
             <hr/>
             {isResponsed ? (<>
                 <div>Ваш отклик: {myResponse.description}</div>
-            </>) : <RequestResponseForm request_id={data.id}/>}
+            </>) : !data.executor && <RequestResponseForm request_id={data.id}/>}
         </>) : (<>
             {!isResponsed ? (<Button type="primary" onClick={() => {
                 navigate('/request/' + data.id + '/');
@@ -33,12 +33,10 @@ const CustomerResponses = ({responses, request}) => {
                 <Button type="primary" onClick={() => {
                     RequestPageApi.acceptResponseForRequest(response.user.id, request.id).then((response) => {
                         if (response.status === 201) {
-                            RequestPageApi.getRequest(request.id).then(
-                                (response) => {
-                                    RequestPageStore.setData(response.data);
-                                    RequestPageStore.setIsShowData(true);
-                                }
-                            )
+                            RequestPageApi.getRequest(request.id).then((response) => {
+                                RequestPageStore.setData(response.data);
+                                RequestPageStore.setIsShowData(true);
+                            })
                         } else {
                         }
                     });
@@ -67,21 +65,20 @@ const CustomerActions = ({data, isResponsed, myResponse, isDetailView, navigate,
             {data.is_active && <Link to={"/my-request/edit/" + data.id + "/"}>Редактировать</Link>}
 
             <hr/>
-            {data.is_active &&
-                <Button type="primary" onClick={() => {
-                    RequestPageApi.completeRequest(data.id).then((response) => {
-                        if (response.status === 201) {
-                            RequestPageApi.getRequest(data.id).then(
-                                (response) => {
-                                    RequestPageStore.setData(response.data);
-                                    RequestPageStore.setIsShowData(true);
-                                }
-                            )
-                        } else {
-                        }
-                    });
-                }} disabled={data.executor.username === null}>Завершить</Button>}
-            {isDetailView && data.executor.username === null ? (<> <hr/> <CustomerResponses responses={data.responses} request={data}/> </>) : null}
+            {data.is_active && <Button type="primary" onClick={() => {
+                RequestPageApi.completeRequest(data.id).then((response) => {
+                    if (response.status === 201) {
+                        RequestPageApi.getRequest(data.id).then((response) => {
+                            RequestPageStore.setData(response.data);
+                            RequestPageStore.setIsShowData(true);
+                        })
+                    } else {
+                    }
+                });
+            }} disabled={data.executor.username === null}>Завершить</Button>}
+            {isDetailView && data.executor.username === null ? (<>
+                <hr/>
+                <CustomerResponses responses={data.responses} request={data}/> </>) : null}
         </>)}
     </>;
 }
@@ -120,14 +117,24 @@ const RequestCard = ({isMyCard = false, isDetailView = false, ...data}) => {
         <div>Место: {data.place}</div>
         <div>Создан: {data.created_at}</div>
 
-        {UserStore.role && UserStore.role.includes('performer') && (
-            <PerformerActions data={data} isResponsed={isResponsed} myResponse={myResponse}
-                              isDetailView={isDetailView} navigate={navigate} isMyCard={isMyCard}/>)}
+            {UserStore.role && UserStore.role.includes('performer') && (
+                <PerformerActions data={data} isResponsed={isResponsed} myResponse={myResponse}
+                                  isDetailView={isDetailView} navigate={navigate} isMyCard={isMyCard}/>)}
 
-        {UserStore.role && UserStore.role.includes('customer') && (
-            <CustomerActions data={data} isResponsed={isResponsed} myResponse={myResponse}
-                             isDetailView={isDetailView} navigate={navigate} isMyCard={isMyCard}/>)}
-    </Card>);
+            {UserStore.role && UserStore.role.includes('customer') && (
+                <CustomerActions data={data} isResponsed={isResponsed} myResponse={myResponse}
+                                 isDetailView={isDetailView} navigate={navigate} isMyCard={isMyCard}/>)}
+
+            {UserStore.role && UserStore.role.includes('performer') && isDetailView && data.executor.id === UserStore.user.id && (
+                <Button onClick={
+                    () => {
+                        navigate("/chat/" + data.creator.id)
+                    }
+                }>
+                    Перейти в сообщения
+                </Button>)}
+        </Card>
+    </div>);
 }
 
 export default observer(RequestCard);

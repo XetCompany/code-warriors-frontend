@@ -11,7 +11,17 @@ class RequestStore {
         this.isShowMyRequests = false;
         this.myRequests = null;
         this.chosenCategories = [];
+        this.usernameChat = null;
+        this.userIdChat = null;
         makeAutoObservable(this);
+    }
+
+    setUsernameChat(usernameChat) {
+        this.usernameChat = usernameChat;
+    }
+
+    setUserIdChat(userIdChat) {
+        this.userIdChat = userIdChat;
     }
 
     setIsShowMyRequests(isShowMyRequests) {

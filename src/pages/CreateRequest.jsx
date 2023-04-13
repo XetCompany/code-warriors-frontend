@@ -49,7 +49,7 @@ const CreateRequest = () => {
     return (
     <div className="create-request">
         <div className="request-card">
-            <h1>Создание заказа</h1>
+            <h1>Создание задания</h1>
                 <Form
                     name="basic"
                     labelCol={{
