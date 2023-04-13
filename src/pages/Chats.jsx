@@ -24,7 +24,7 @@ const Chats = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            padding: '257px',
+            padding: '247px',
             borderRadius: '0 0 10px 10px',
         }} className="back">
             {ChatsStore.chats.map((value, index, array) => {
