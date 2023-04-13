@@ -17,6 +17,7 @@
 .Logo {
   margin-top: 30px;
   margin-left: 50px;
+  position: absolute;
 }
 .header ul {
   display: flex; 
@@ -26,12 +27,12 @@
 }
 .navbar {
   flex-direction: row;
-
+  max-height: 50px;
 }
 .navbarul li a {
   position: relative;
-  bottom: 115px;
   margin-right: 50px;
+  z-index: 999;
   color: #fff;
   font-family: 'Ubuntu';
   font-style: normal;
