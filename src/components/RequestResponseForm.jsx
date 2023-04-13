@@ -9,7 +9,7 @@ import RequestPageApi from "../store/Request/RequestPageApi";
 const onFinish = (request_id, navigate) => {
     RequestPageApi.addResponseToRequest({
         id: request_id,
-        data: RequestPageStore.data,
+        data: FormApi.form.getFieldsValue(),
     }).then((response) => {
         RequestPageApi.getRequest(request_id).then(
             (response) => {

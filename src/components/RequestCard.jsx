@@ -15,7 +15,7 @@ const PerformerActions = ({data, isResponsed, myResponse, isDetailView, navigate
             <hr/>
             {isResponsed ? (<>
                 <div>Ваш отклик: {myResponse.description}</div>
-            </>) : !data.executor && <RequestResponseForm request_id={data.id}/>}
+            </>) : data.executor!==null && <RequestResponseForm request_id={data.id}/>}
         </>) : (<>
             {!isResponsed ? (<Button type="primary" onClick={() => {
                 navigate('/request/' + data.id + '/');
