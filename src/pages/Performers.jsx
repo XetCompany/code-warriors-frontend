@@ -79,6 +79,7 @@ const Performers = () => {
                             : 'Неизвестный отправитель'}
                     </Button>
                 })}
+                {!SearchStore.dataSearch.length && <div>Ничего не найдено</div>}
             </>) : SearchStore.isSearch && <div>Загрузка...</div>}
         </div>
     </div>);
