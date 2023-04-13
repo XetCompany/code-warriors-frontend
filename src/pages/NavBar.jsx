@@ -18,16 +18,16 @@ const NavBar = () => {
             <img className="Logo" src={Logo} alt=""/>
             <ul className="navbarul">
                 {userStore.user !== null ? <>
-                    <li><Link to={"/requests"}>Найти задания</Link></li>
+                    <li><Link to={"/requests"}>Задания</Link></li>
                     {userStore.role.includes('customer') ? <>
                         <li><Link to={"/request/create"}>Создать задание</Link></li>
                         <li><Link to={"/performers"}>Исполнители</Link></li>
+                        <li><Link to="/rating">Рейтинг</Link></li>
                     </> : null}
                     <li><Link to={"/my-requests"}>Мои задания</Link></li>
                     <li><Link to="/personal-account">Мой
                         аккаунт{userStore.notifications.length > 0 ? <>({userStore.notifications.length})</> : null}</Link>
                     </li>
-                    {/*<li><Link to="/rating">Рейтинг</Link></li>*/}
                     <li><Link to="/chats">Чаты</Link></li>
                     <li><Link to={"/"} onClick={logout}>Выход</Link></li>
                 </> : <>

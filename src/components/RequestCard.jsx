@@ -114,7 +114,7 @@ const RequestCard = ({isMyCard = false, isDetailView = false, ...data}) => {
         <div>Отклики: {num_responses}</div>
         <div>Описание: {data.description}</div>
         <div>Цена от: {data.price_from} до {data.price_to}</div>
-        <div>Срок выполнения: {data.deadline_in_days}</div>
+        <div>Срок выполнения в днях: {data.deadline_in_days}</div>
         <div>Место: {data.place}</div>
         <div>Создан: {data.created_at}</div>
 

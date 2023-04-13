@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 .header {
-  background-color: rgb(46, 131, 233); 
+  background-color: rgb(46, 131, 233);
   font-family: 'Ubuntu', sans-serif;
-  height: 77px; 
+  height: 77px;
   top: 0;
   left: 5px;
-  border-bottom: 1px solid rgb(8, 124, 232); 
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px; 
+  border-bottom: 1px solid rgb(8, 124, 232);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
   position: sticky;
   border-radius: 25px;
   z-index: 1000;
@@ -20,8 +20,8 @@
   position: absolute;
 }
 .header ul {
-  display: flex; 
-  list-style: none; 
+  display: flex;
+  list-style: none;
   padding: 30px 0 34px 0;
   justify-content: end;
 }
@@ -80,8 +80,8 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  border-bottom: 1px solid rgb(8, 124, 232); 
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px; 
+  border-bottom: 1px solid rgb(8, 124, 232);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 4px;
   position: sticky;
   background-image: url('./img/image2.png');
   border-radius: 30px;
@@ -156,7 +156,7 @@
 .edit_text {
   color: white;
   padding: 20px;
-  
+
 }
 .my-request-edit {
   display: flex;
@@ -204,7 +204,7 @@
 }
 
 .register h1 {
-  
+
   font-family: 'Ubuntu', sans-serif;
   font-size: 30px;
   font-weight: 400;
@@ -286,6 +286,8 @@
   flex-direction: column;
   box-shadow: 0 4px 8px 0 rgba(239, 150, 7, 0.846);
   max-width: 300px;
+    width: 300px;
+    margin-bottom: 10px;
   align-items: center;
 }
 
